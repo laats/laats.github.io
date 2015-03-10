@@ -1,0 +1,11 @@
+Package: pph
+Type: Package
+Title: Produce Differentially Private Projected Histogram Data
+Version: 1.0-50
+Date: 2012-03-16
+Author: Staal A. Vinterbo <sav@ucsd.edu>
+Maintainer: Staal A. Vinterbo <sav@ucsd.edu>
+Depends: R (>= 1.14.0), VGAM, hash
+Description: Produce Differentially Private Projected Histogram Data
+License: GPL (>= 2)
+

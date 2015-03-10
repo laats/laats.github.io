@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Differentially Private Projected Histograms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="R.css">
+</head><body>
+
+<table width="100%" summary="page for pph"><tr><td>pph</td><td align="right">R Documentation</td></tr></table>
+
+<h2>
+Differentially Private Projected Histograms
+</h2>
+
+<h3>Description</h3>
+
+
+<p>The <code>pph</code> package provides a way to create training data for
+classifiers in a differentially private manner.
+</p>
+<p><code>pdata</code> is a differentially private procedure that first projects
+data onto a subset of dimensions conditioned on a particular target
+dimension, and subsequently creates data by rounding a noisy
+truncated histogram of the projected data.
+</p>
+<p><code>defk</code> is used to estimate the number of covariate dimensions
+needed.
+</p>
+<p><code>gamma</code> is used to distribute the privacy budget between the
+two tasks of projecting and generate a noisy histogram.
+</p>
+<p><code>kmda</code> is a used to compute a size <code>k</code> projection onto
+predictor columns for a target attribute in a differentially private
+manner.
+</p>
+<p><code>to01</code> is a convenience function that scales numeric columns of a
+data frame into the unit interval.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+pdata(data, target = ncol(data), eps = 1, A = getOption('pph.A', 0.5),
+      k = defk(data, target = target), gamma. = gamma(data, k = k),
+      jitter = NULL, histogram.out=FALSE, verbose=FALSE)
+defk(data, tau=0.1, target=ncol(data))
+gamma(data, p=0.95, tau=0.05, B=getOption('pph.B', 0.5), k = NULL)
+kmda(object, ...)
+to01(data, warn=FALSE)
+
+## S3 method for class 'numeric'
+kmda(object, m, k, epsilon=1, verbose=FALSE)
+## S3 method for class 'data.frame'
+kmda(object, target=ncol(object), ...)
+## S3 method for class 'matrix'
+kmda(object, target=ncol(object), ...)
+## S3 method for class 'formula'
+kmda(object, data=NULL, ...)
+
+</pre>
+
+
+<h3>Arguments</h3>
+
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+
+<p>A data frame containing data intended for building a classifier
+for a target attribute. In <code>kmda.formula</code> it is the data frame
+for which we seek a set of size <code>k</code> of predictor columns.
+</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+
+<p>The index of the target attribute in <code>data</code> (or <code>object</code>
+in <code>kmda.data.frame</code> and <code>kmda.matrix</code>).
+</p>
+</td></tr>
+<tr valign="top"><td><code>eps</code></td>
+<td>
+
+<p>The privacy level.
+</p>
+</td></tr>
+<tr valign="top"><td><code>epsilon</code></td>
+<td>
+
+<p>The privacy level for <code>kmda</code>. If this is set to <code>NA</code>,
+<code>kmda</code> will run in non-private mode.
+</p>
+</td></tr>
+<tr valign="top"><td><code>A</code></td>
+<td>
+
+<p>A tuning parameter used to filter the histogram by removing
+entries that are equal to or less <code>A*log(nrow(data))/eps</code>.
+</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+
+<p>The number of predictor (covariate, independent) dimensions. If
+<code>NULL</code> in <code>gamma</code> then <code>defk</code> will be called to
+provide a value. 
+</p>
+</td></tr>
+<tr valign="top"><td><code>tau</code></td>
+<td>
+
+<p><code>1 - tau</code> is the fraction of target pairs discerned in the
+estimation of the needed <code>k</code> in <code>defk</code>.
+</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+
+<p>the target probability that an original data point data makes it
+into the truncated histogram.
+</p>
+</td></tr>
+<tr valign="top"><td><code>B</code></td>
+<td>
+
+<p>a tuning parameter for the importance of projection in
+the computations in <code>gamma</code>.
+</p>
+</td></tr>
+<tr valign="top"><td><code>gamma.</code></td>
+<td>
+
+<p>Distributes the privacy budget <code>epsilon</code> between computing
+which <code>k</code> dimensions to project onto, and building the noisy
+histogram. The former gets <code>(1 - gamma.)*eps</code>, while the
+latter gets <code>gamma. * eps</code>.
+</p>
+</td></tr>
+<tr valign="top"><td><code>jitter</code></td>
+<td>
+
+<p>If non-NULL, this adds small numeric noise to numeric values to
+smooth out the effects of discretization by calling
+<code>base::jitter</code> with a factor argument taking the value of
+<code>jitter</code>. The noise added is uniform in the range [-a, a]
+where <code>a = jitter * d/5</code>, where <code>d</code> is the smallest
+difference between two different discretized values. 
+</p>
+</td></tr> 
+<tr valign="top"><td><code>histogram.out</code></td>
+<td>
+
+<p>if <code>TRUE</code> <code>pdata</code> returns a <code>hash</code> object
+representing the noisy truncated histogram. If <code>FALSE</code> a
+data frame created from the histogram is returned.
+</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+
+<p>print information about progress and parameters if <code>TRUE</code>.
+</p>
+</td></tr>
+<tr valign="top"><td><code>object</code></td>
+<td>
+
+<p>in <code>kmda.numeric</code> this is the index of the target column in
+<code>m</code>. In <code>kmda.matrix</code> and <code>kmda.data.frame</code> it is a
+matrix or data.frame respectively. In <code>kmda.formula</code> it is a
+formula that describes among which columns predictor columns for the
+target attribute should be sought among. 
+</p>
+</td></tr>
+<tr valign="top"><td><code>m</code></td>
+<td>
+
+<p>a matrix containing the attribute columns out of which <code>object</code>
+is the target column index for which we seek <code>k</code> predictor
+columns for.
+</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+
+<p>Parameters to be passed to <code>kmda.numeric</code> from the other
+<code>kmda</code> methods.
+</p>
+</td></tr>
+<tr valign="top"><td><code>warn</code></td>
+<td>
+
+<p>warn if columns were scaled.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<p>Columns in the data frame <code>data</code> are expected to be either
+numeric or factors. A numeric column in <code>data</code> must only contain
+values from the unit interval in order for <code>pdata</code> to be
+differentially private. For convenience, <code>pdata</code> will scale
+non unit interval numeric columns to the unit interval and issue a
+warning. Numeric data is discretized into bins of equal width. This
+width is computed as a function of the size and dimensionality of the
+data. A minimum width can be set by setting option <code>pph.minbw</code>
+using <code>options</code>.
+</p>
+
+
+<h3>Value</h3>
+
+
+<p><code>pdata</code> returns a data frame.
+</p>
+<p><code>kmda.formula</code> returns a formula representation of the
+projection. The other <code>kmda</code> methods return a list containing two
+items <code>S</code> a vector of column indices into <code>object</code> or <code>m</code> of
+the computed predictors, <code>lo</code> a measure of pairs not discerned.
+</p>
+
+
+<h3>Warning</h3>
+
+
+<p><code>pdata</code> is only differentially private if numeric data is
+constrained to the unit interval.
+</p>
+<p>In <code>kmda</code>, the <code>lo</code> component is <EM>not</EM> produced in a
+differentially private manner.
+</p>
+<p>The code currently applies exhaustive exploration of possible histogram 
+entries as opposed to the more efficient sampling method presented in the reference 
+on which the method is based.
+</p>
+
+
+<h3>Note</h3>
+
+
+<p>For now, this package can be installed by issuing
+<code>install.packages('pph', repos='http://laats.github.io/sw/R')</code>.
+</p>
+<p>This implementation was in part supported by NIH NLM grant
+7R01LM007273-07 and NIH Roadmap for Medical Research grant U54
+HL108460.
+</p>
+
+
+<h3>Author(s)</h3>
+
+
+<p>Staal A. Vinterbo &lt;sav@ucsd.edu&gt;
+</p>
+
+
+<h3>References</h3>
+
+
+<p>S. A. Vinterbo.
+Differentially Private Projected Histograms: Construction and Use for Prediction.
+<EM>Proc. ECML-PKDD 2012</EM>, to appear.
+</p>
+
+
+<h3>See Also</h3>
+
+
+<p>See also  <code>hash</code>, <code>options</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+  data(iris)
+  # scale numeric covariates into the unit interval
+  iris &lt;- to01(iris)
+
+  # Differentially private logistic regression:
+  model &lt;- glm(I(Species == 'virginica') ~ ., binomial, pdata(iris))
+  summary(model)
+  p &lt;- predict(model, iris, type='response')
+
+  ## show results:
+  boxplot(p ~ s, data.frame(p=p, s=iris$Species), ylab='P(virginica|x)',
+          xlab='Actual Class')
+
+  # Differentially private multinomial logistic regression
+  # (not run due to nnet dependency)
+  ## Not run: 
+    library(nnet) # load multinom
+    data(iris)
+    iris &lt;- to01(iris)
+    model &lt;- multinom(Species ~ ., data=pdata(iris))
+    p &lt;- predict(model, iris)
+  
+## End(Not run)
+  # compute a projection
+  m &lt;- data.frame(matrix(sample(0:1, 100, replace=TRUE), ncol=5))
+  pr &lt;- kmda(m, k=3)
+  pr &lt;- kmda(m, target=5, k=3)
+  pr &lt;- kmda(X5 ~ ., m, k=3)
+  # the above are all equivalent, except that the last one
+  # returns a formula instead of a list.  
+
+</pre>
+
+
+</body></html>
