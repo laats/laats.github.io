@@ -1,0 +1,14 @@
+
+body { 
+  background: white; 
+  font-family: Verdana, sans-serif;
+  font-size: 80%;
+  margin-right: 3%; 
+}
+
+td,th { font-family: Verdana, sans-serif; } 
+pre { font-family: monospace; }
+:link { color: rgb(0, 0, 153) }
+:visited { color: rgb(50, 50, 100) }
+:active { color: rgb(255, 0, 102) }
+:hover { color: rgb(0, 96, 255) }
