@@ -1,1 +1,543 @@
-rgen.html
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.4.1: http://docutils.sourceforge.net/" />
+<title></title>
+<style type="text/css">
+
+/*
+:Author: David Goodger
+:Contact: goodger@users.sourceforge.net
+:Date: $Date: 2005-12-18 01:56:14 +0100 (Sun, 18 Dec 2005) $
+:Revision: $Revision: 4224 $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin-left: 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em ;
+  background-color: #eeeeee }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+tt.docutils {
+  background-color: #eeeeee }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+<p>generate a rule based classifer learned from input data.</p>
+<div class="section">
+<h1><a id="rgen-py" name="rgen-py">rgen.py</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Author:</th><td class="field-body">Staal A. Vinterbo</td>
+</tr>
+<tr class="field"><th class="field-name">Copyright:</th><td class="field-body">2009 Staal A. Vinterbo</td>
+</tr>
+<tr class="field"><th class="field-name">Version:</th><td class="field-body">generated for 0.07</td>
+</tr>
+<tr class="field"><th class="field-name">Availability:</th><td class="field-body"><a class="reference" href="http://www.gnu.org/copyleft/gpl.html">GPL</a></td>
+</tr>
+<tr class="field"><th class="field-name">URI:</th><td class="field-body"><a class="reference" href="rgen.py">rgen.py</a> (Fuzzy extension: <a class="reference" href="rgenfuzzy.py">rgenfuzzy</a>)</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><strong>Contents</strong>:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference" href="#module-synopsis">Module Synopsis</a></li>
+<li><a class="reference" href="#standalone-invocation">Standalone Invocation</a></li>
+<li><a class="reference" href="#theory">Theory</a></li>
+</ul>
+</dd>
+</dl>
+<div class="section">
+<h2><a id="module-synopsis" name="module-synopsis">Module Synopsis</a></h2>
+<p>Let m be a data matrix (list of rows) where columns represent
+attributes and rows represent the attribute values for objects. Then:</p>
+<pre class="literal-block">
+X, A = makeX(m), makeA(m)
+P = makeP(X)
+I = greedy_cover([P(a) for a in A(m)]))
+</pre>
+<p>computes (currently somewhat inefficiently, due to the size of P(a)) the
+approximation of a minimum index set I such that distinct rows in m remain
+distinct when m is projected onto the columns indexed by I.</p>
+<p>Unless A is significantly larger than X, the same can be computed more
+efficiently as:</p>
+<pre class="literal-block">
+mda(A, X)
+</pre>
+<p>If we consider the last column in m to be the class labels, the code:</p>
+<pre class="literal-block">
+X, A = makeX(m), makeA(m)
+S = makeS(X)
+z = X[0]
+I = greedy_cover([S(z)(a) &amp; S(z)(A[-1]) for a in A[:-1]])
+</pre>
+<p>computes the index set I of attributes from which we compute the antecedent
+for the rule instantiated from the first row in m.</p>
+<p>Unless A is significantly larger than X, the same can be computed more
+efficiently as:</p>
+<pre class="literal-block">
+I = mdar(A[:-1], X, z, A[-1])
+</pre>
+<p>Continuing:</p>
+<pre class="literal-block">
+exec(descriptor_code(A,X))
+r = eval(rule_descriptor_code(I,z))
+</pre>
+<p>computes a function r that when when applied to a data point p yields a
+tuple (o,v) where o is the class label and v is the rule strength. Example:</p>
+<pre class="literal-block">
+r(m[0])
+</pre>
+<p>applies r to the first row in m.</p>
+<p>Also, if m is:</p>
+<pre class="literal-block">
+m = [[1, 2, 0],
+     [1, 3, 1],
+     [2, 2, 1]]
+</pre>
+<p>the code:</p>
+<pre class="literal-block">
+print(rule_descriptor_code(I,z))
+</pre>
+<p>prints:</p>
+<pre class="literal-block">
+lambda p,f = (lambda x:x) : (0,
+            min(f(map(lambda (a, av, pv): descriptor(a,av)(pv),
+            zip([0, 1], [1, 2], [p[i] for i in [0, 1]])))))
+</pre>
+<p>The f argument in the lambda above allows processing of the list of values
+returned by the individual propositions in the rule antecedent. An example
+use is to implement partial antecedent matching in that a rule is allowed
+to apply to a point even though it is not contained in one or more of
+the antecedent propositions' truth sets.</p>
+<p>The code in this module allows the more or less direct implementation of the
+theory description. One change is that P(a)(z) is more efficiently computed
+as S(z)(a). Furthermore, the equivalence predicate takes the symbol '?' for
+missing values into account.</p>
+</div>
+<div class="section">
+<h2><a id="standalone-invocation" name="standalone-invocation">Standalone Invocation</a></h2>
+<p>Run as a standalone program this module will compute a rule based classifier
+and print a python program that implements it.</p>
+<p>Note that the rectangular data set required as input is assumed to contain
+attribute names on the first line. Each subsequent line contains the
+attribute values for an object. The last attribute, i.e., last column, is
+taken to contain class labels.</p>
+<p>Try (assuming a shell command line):</p>
+<pre class="literal-block">
+$ python rgen.py -h
+$ python rgen.py -e | less
+$ python rgen.py dataset.txt | less
+$ python rgen.py dataset.txt | python - h
+$ python rgen.py dataset.txt | python - dataset.txt
+$ python rgen.py dataset.txt | python - -c dataset.txt
+</pre>
+<p>To generate a html version of this short explanation:</p>
+<pre class="literal-block">
+$ python rgen.py -e | rst2html &gt; explanation.html
+</pre>
+<p>rst2html is a part of the python docutils package
+<a class="reference" href="http://docutils.sourceforge.net/docs/">http://docutils.sourceforge.net/docs/</a></p>
+<p>Note that the standalone program can also attempt to reduce the number
+of rules by filtering. This filtering tries to cover all instances in
+the training data with as few rules that have the same label in the
+antecedent as the instances they cover.</p>
+<div class="section">
+<h3><a id="fuzzy-rules" name="fuzzy-rules">Fuzzy Rules</a></h3>
+<p>If there is a loadable module
+<a class="reference" href="rgenfuzzy.py">rgenfuzzy</a> then the option of generating fuzzy
+rules is enabled.</p>
+<p>With this module loaded the fuzzy rules are computed much in the same way as
+described in the paper:</p>
+<pre class="literal-block">
+Vinterbo, S.A., Kim, E. &amp; Ohno-Machado, L
+Small, fuzzy and interpretable gene expression based classifiers.
+Bioinformatics Vol. 21(9), pp. 1964-1970, 2005.
+</pre>
+<p><a class="reference" href="http://dx.doi.org/10.1093/bioinformatics/bti287">Find the above Bioinformatics paper here.</a></p>
+</div>
+</div>
+<div class="section">
+<h2><a id="theory" name="theory">Theory</a></h2>
+<p>Let U be a set of objects, let X be a subset of U,
+and let A be a set of functions from U to some set.
+Further let l be function from U to a set L of class labels.</p>
+<p>The goal is that only given the restriction of l to X, we wish to represent an
+as large extension of l as possible using X. We want to represent this extension
+as classification rules for elements in U using A.
+In order to generalize as best as possible we adopt the strategy of creating
+as short rule antecedents as possible. A principled way of going about this is
+as follows.</p>
+<div class="section">
+<h3><a id="rules" name="rules">Rules</a></h3>
+<p>Let a rule be a function r on X that when applied to an element x returns
+a tuple (l, v) where l is the class label associated with the consequent of
+the rule and v is the value of 'applying' the antecedent of the rule.</p>
+<p>We will conveniently represent rule r as a tuple r = (c, alpha)
+of antecedent and class label, respectively. We can then, abusing notation
+slightly, compute r(x) as:</p>
+<pre class="literal-block">
+r(x) = (c, alpha(x)).
+</pre>
+<p>This computation can be interpreted as assigning c to x with strength alpha(x).
+The tuples resulting from an application of rules in a set of rules can
+be combined to yield an assignment of strengths to the possible class
+labels. This assignment can in turn be used to make an assignment of
+label to x.</p>
+</div>
+<div class="section">
+<h3><a id="propositions-over-u-and-antecedent-functions" name="propositions-over-u-and-antecedent-functions">Propositions over U and antecedent functions</a></h3>
+<p>By a proposition over U we mean a characteristic function of some subset of U.</p>
+<p>A rule antecedent alpha is constructed as a conjunction of such propositions.
+We can view such a conjunction as a set. If alpha is the conjunction:</p>
+<pre class="literal-block">
+p_i and p_j and ... and p_k
+</pre>
+<p>we can represent alpha as a set:</p>
+<pre class="literal-block">
+alpha = {p_i, p_j, ...,  p_k}
+</pre>
+<p>and (again abusing notation) compute alpha(x) as:</p>
+<pre class="literal-block">
+min {p(x) | p in alpha}.
+</pre>
+<p>Given a function a in A and an element x in U we can form a proposition p(a,x)
+over U that is the characteristic function of:</p>
+<pre class="literal-block">
+T(p(a,x)) = { y in U | a(y) = a(x) },
+</pre>
+<p>i.e, p(a,x)(z) = 1 iff z lies in T(p(a,x)).</p>
+<p>Given a subset A' of A and a fixed element z in X, we can form a
+conjunction ant(z) as:</p>
+<pre class="literal-block">
+ant(z) = {p(a, z) | a in A'}.
+</pre>
+<p>(Recall that we compute ant(z)(x) for some x as min {p(x) | p in ant(z)}).</p>
+<p>We will translate the the wish of a maximal extension of the classifier, or
+labelling function, l, into a criterion for rule r = (c, ant(z)):</p>
+<blockquote>
+the antecedent should be as short as possible while not being applicable
+to any elements y in X that have a different class label, i.e.,
+we require that ant(y) = 0 if l(y) != l(z) (if y and z are discernable
+by A, that is).</blockquote>
+<p>Let f be any function on X (note that we assume that we have a predicate '='
+that lets us determine equivalence and discernibility for each point in the
+image of X under f), then we define the set of pairs of elements from X that
+we can discern between by the use of f as:</p>
+<pre class="literal-block">
+P(f) = {(x,y) in X^2 | not f(x) = f(y) }
+</pre>
+<p>Given an element x in X we have that the set of elements in Y
+that are discernable from x by f as:</p>
+<pre class="literal-block">
+P(f)(x) = { y in X | not f(x) = f(y) }
+</pre>
+<p>The criterion on ant(z) using A' can then be formulated in terms of X as
+as:</p>
+<pre class="literal-block">
+| D(A') | / | D(A) | &gt;= t
+</pre>
+<p>where:</p>
+<pre class="literal-block">
+D(B) =  intersection {union {P(a)(z) | a in B}, P(l)(z)}.
+</pre>
+<p>If t = 1 then the requirement is strict. However, we can avoid overfitting
+if t &lt; 1. Doing that reduces the correctness of the rule on X however.
+A more detailed description of the function of t above can be found in:</p>
+<pre class="literal-block">
+Vinterbo, S. &amp; Ohrn, A.
+Minimal Approximate Hitting Sets and Rule Templates.
+International Journal of Approximate Reasoning, Vol. 25(2), pp. 123-143, 2000.
+</pre>
+<p><a class="reference" href="http://dx.doi.org/10.1016/S0888-613X(00)00051-7">Find the above IJAR paper here.</a></p>
+<p>Finding a minimum A' such that ant(y) = 0 if l(y) != l(z) is provably NP-hard
+(for a proof of this and approximation properties of the case where l is
+injective see <a class="reference" href="http://dx.doi.org/10.1186/1471-2105-7-8">here</a>).</p>
+<p>We can transform it to a standard set covering problem for the following
+collection of sets:</p>
+<pre class="literal-block">
+[P(a)(z) &amp; P(l)(z) | a in A].
+</pre>
+<p>Let set_cover(z) be a function that computes the above cover, then
+a rule r can be computed by:</p>
+<pre class="literal-block">
+r = (l(z), {p(a_i, z) | i in set_cover([P(a)(z) &amp; P(l)(z) | a in A])}).
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,1 +1,179 @@
-gcl.html
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: GCL: A package for Computing fuzzy rules or tree classifiers from numeric data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../../R.css">
+</head><body>
+
+<table width="100%" summary="page for gcl-package {unknown}"><tr><td>gcl-package {unknown}</td><td align="right">R Documentation</td></tr></table>
+<h2>GCL: A package for Computing fuzzy rules or tree classifiers from numeric data</h2>
+
+
+<h3>Description</h3>
+
+<p>
+<STRONG>gcl</STRONG> is a <font face="Courier New,Courier" color="#666666"><b>R</b></font> (<a href="http://www.r-project.org">http://www.r-project.org</a>) package
+for computing fuzzy rules and tree classifiers given numeric input
+data.
+</p>
+
+
+<h3>Details</h3>
+
+<p>
+<table summary="Rd table">
+<tr>
+  <td align="left">Package: </td>  <td align="left"> gcl</td>
+</tr>
+<tr>
+  <td align="left"> Type: </td>  <td align="left"> Package</td>
+</tr>
+<tr>
+  <td align="left"> Version: </td>  <td align="left"> 1.06.4</td>
+</tr>
+<tr>
+  <td align="left"> License: </td>  <td align="left"> GPL Version 2</td>
+</tr>
+<tr>
+  <td align="left"> URL: </td>  <td align="left"> <a href="http://www.r-project.org">http://www.r-project.org</a>,</td>
+</tr>
+<tr>
+  <td align="left"> </td>  <td align="left"> <a href="http://www.mit.edu/~sav/fuzzy/latest/">http://www.mit.edu/~sav/fuzzy/latest/</a></td>
+</tr>
+</table>
+<p>
+Function index:
+<pre>
+acc.eval                Function that evaluates the accuracy of a
+                        classifier function on a data frame
+ci.eval                 Function that evaluates the cindex of a
+                        classifier function on a data frame
+cindex                  Compute the c-index
+cv                      N-fold crossvalidation
+cv52                    5x2 fold crossvalidation
+cvcomp                  Compare two models using crossvalidation
+gain                    Computes information theoretic gain
+gainr                   Computes information theoretic gain ratio
+gcl                     GCL: a fuzzy rule classifier generator
+hanley                  Statistically compare C-indices
+loocv                   Leave one out crossvalidation
+</pre>
+</p>
+<p>
+<STRONG>gcl</STRONG>
+</p>
+<p>
+This function computes a fuzzy rules classifier given numeric input data
+as the data frame or matrix mydata. 
+</p>
+<p>
+The algorithm for doing so is described in <CITE>Vinterbo et al., 2005</CITE>. 
+</p>
+<p>
+When applied, <code>gcl</code> returns another <font face="Courier New,Courier" color="#666666"><b>R</b></font> function that implements the found
+classifier. This computed classifier function takes one argument, a
+vector, matrix or data frame to be classified, and outputs a vector of
+class memberships for each input vector, matrix or data frame row. (See
+examples section below). 
+</p>
+<p>
+Even though the paper cited above is on classification using gene
+expression data, numerical data in general can be used. For instance
+<pre>
+&gt; library(gcl)
+&gt; library(datasets)
+&gt; data(iris)
+&gt; classifier &lt;- gcl(iris, nlev=5)
+&gt; acc.eval(classifier, iris)
+</pre>
+computes a fuzzy rule classifier for Edgar Anderson's Iris Data set and
+evaluates the classifier accuracy on the same data set.
+</p>
+
+
+<h3>Availability</h3>
+
+<p>
+The gcl program should be considered as being testing
+software. It is supplied as is, and NO WARRANTY whatsoever is given.
+</p>
+<p>
+GCL is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>
+as published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.
+</p>
+<p>
+GCL is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+</p>
+<p>
+You should have received a copy of the GNU General Public License
+along with GCL; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+</p>
+<p>
+The gzipped tar archive containing the latest gcl R package version
+can also be gotten here:
+<a href="http://www.mit.edu/~sav/fuzzy/latest/">http://www.mit.edu/~sav/fuzzy/latest/</a>
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Staal A. Vinterbo
+</p>
+<p>
+Maintainer: complain to &lt;staal at dsg fullstop harvard fullstop edu&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Vinterbo, S.A.; Kim, E. and Ohno-Machado, L. <EM>Small, fuzzy and
+interpretable gene expression based classifiers</EM>. Bioinformatics,
+2005, 21, 1964-1970.
+<a href="http://bioinformatics.oxfordjournals.org/cgi/content/abstract/21/9/1964">http://bioinformatics.oxfordjournals.org/cgi/content/abstract/21/9/1964</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="../../../doc/html/search/SearchObject.html?gcl">gcl</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## run the demo
+demo(gcldemo)
+
+## play with the iris data set:
+## Not run: 
+library(gcl)
+library(datasets)
+data(iris)
+classifier &lt;- gcl(iris, nlev=5)
+acc.eval(classifier, iris)
+## End(Not run)
+
+## compare performance of gcl and tcl
+## Not run: 
+library(gcl)
+library(datasets)
+data(iris)
+cv52(iris, gcl, tcl, acc.eval, nlev=5, t.nlev=5)
+## End(Not run)
+</pre>
+
+
+
+<hr><div align="center">[Package <a href="00Index.html">Index]</a></div>
+
+</body></html>
