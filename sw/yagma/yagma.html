@@ -1,0 +1,2196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<title>yagma</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 6253 2010-03-02 00:24:53Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: left }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<style type="text/css">
+
+/*
+:Authors: Ian Bicking, Michael Foord
+:Contact: fuzzyman@voidspace.org.uk
+:Date: 2005/08/26 
+:Version: 0.1.0
+:Copyright: This stylesheet has been placed in the public domain.
+
+Stylesheet for Docutils.
+Based on ``blue_box.css`` by Ian Bicking
+and ``html4css1.css`` revision 1.46.
+*/
+
+@import url(html4css1.css);
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+em, i {
+  /* Typically serif fonts have much nicer italics */
+  font-family: Times New Roman, Times, serif;
+}
+
+a.target {
+  color: blue;
+}
+
+a.target {
+  color: blue;
+}
+
+a.toc-backref {
+  text-decoration: none;
+  color: black;
+}
+
+a.toc-backref:hover {
+  background-color: inherit;
+}
+
+a:hover {
+  background-color: #cccccc;
+}
+
+div.attention, div.caution, div.danger, div.error, div.hint,
+div.important, div.note, div.tip, div.warning {
+  background-color: #cccccc;
+  padding: 3px;
+  width: 80%;
+}
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title  {
+  text-align: center;
+  background-color: #999999;
+  display: block;
+  margin: 0;
+}
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: #cc0000;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #999999;
+  display: block;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Arial, sans-serif;
+  border: thin solid black;
+  /* This makes the borders rounded on Mozilla, which pleases me */
+  -moz-border-radius: 8px;
+  padding: 4px;
+}
+
+h1 {
+  background-color: #444499;
+  color: #ffffff;
+  border: medium solid black;
+}
+
+h1 a.toc-backref, h2 a.toc-backref { 
+  color: #ffffff;
+}
+
+h2 {
+  background-color: #666666;
+  color: #ffffff;
+  border: medium solid black;
+}
+
+h3, h4, h5, h6 {
+  background-color: #cccccc;
+  color: #000000;
+}
+
+h3 a.toc-backref, h4 a.toc-backref, h5 a.toc-backref, 
+h6 a.toc-backref { 
+  color: #000000;
+}
+
+h1.title {
+  text-align: center;
+  background-color: #444499;
+  color: #eeeeee;
+  border: thick solid black;
+  -moz-border-radius: 20px;
+}
+
+table.footnote {
+  padding-left: 0.5ex;
+}
+
+table.citation {
+  padding-left: 0.5ex
+}
+
+pre.literal-block, pre.doctest-block {
+  border: thin black solid;
+  padding: 5px;
+}
+
+.image img { border-style : solid;
+            border-width : 2px;
+}
+
+h1 tt, h2 tt, h3 tt, h4 tt, h5 tt, h6 tt {
+  font-size: 100%;
+}
+
+code, tt {
+  color: #000066;
+}
+
+</style>
+</head>
+<body>
+<div class="document" id="yagma">
+<h1 class="title">yagma</h1>
+
+<img alt="a 3D image of an alignment produced by yagma" class="align-right" src="yagma.png" style="height: 300px;" />
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Author:</th><td class="field-body">Staal A. Vinterbo</td>
+</tr>
+<tr class="field"><th class="field-name">Copyright:</th><td class="field-body">2011 Staal A. Vinterbo</td>
+</tr>
+<tr class="field"><th class="field-name">Version:</th><td class="field-body">generated for 1.23</td>
+</tr>
+<tr class="field"><th class="field-name">Availability:</th><td class="field-body"><a class="reference external" href="http://www.gnu.org/copyleft/gpl.html">GPL</a></td>
+</tr>
+<tr class="field"><th class="field-name">Homepage:</th><td class="field-body"><a class="reference external" href="http://ptg.ucsd.edu/~staal/yagma/">http://ptg.ucsd.edu/~staal/yagma/</a></td>
+</tr>
+<tr class="field"><th class="field-name">Download:</th><td class="field-body"><a class="reference external" href="http://ptg.ucsd.edu/~staal/yagma/dist">http://ptg.ucsd.edu/~staal/yagma/dist</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contents</strong>:</p>
+<blockquote>
+<ul>
+<li><p class="first"><a class="reference internal" href="#synopsis">Synopsis</a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#standalone-invocation">Standalone Invocation</a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#installation-summary">Installation Summary</a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#detailed-description">Detailed Description</a></p>
+<ul>
+<li><p class="first"><a class="reference internal" href="#introduction">Introduction</a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#methods">Methods</a></p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="#color-coding-by-folding">Color Coding By Folding</a></li>
+<li><a class="reference internal" href="#the-overall-algorithm">The Overall Algorithm</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="#computational-experiments">Computational Experiments</a></p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference internal" href="#color-coding-efficiency">Color Coding Efficiency</a></li>
+<li><a class="reference internal" href="#overall-algorithm-performance">Overall Algorithm Performance</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="#discussion-and-conclusion">Discussion and Conclusion</a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="#references">References</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<div class="section" id="synopsis">
+<h1>Synopsis</h1>
+<p>Python:</p>
+<pre class="literal-block">
+from yagma import GraphMatch, TreeMatch
+m = GraphMatch(G1, G2, k=5, eps=0.1,
+               quickbound = lambda T, G, f : (_tolerance, None),
+               v=dsim, w=dsim)
+assignment, strength = m(coverage=1, maxit = sys.maxint,
+                         callback=None, nocc=False, star=True,
+                         uisim=False, single = False)
+tm = TreeMatch(T, G, eps=0.1, sbound=0, v=dsim, w=dsim)
+assignments, score = tm(sbound=None,  maxit=sys.maxint,
+                  uisim = True, single = True)
+</pre>
+<p>Standalone programs:</p>
+<pre class="literal-block">
+$ python yagm.py -h
+$ yagm -help
+</pre>
+<p><strong>Yagma</strong> is Yet Another Graph Matching Approach. It is
+both an algorithm/approach, a <a class="reference external" href="http://www.python.org/">Python</a>
+module with an accompanying command line script, and an
+<a class="reference external" href="http://caml.inria.fr/">OCaml</a> implementation of the algorithm.</p>
+<p>A <em>matching</em> or <em>assignment</em> between two graphs G1 and G2 is an
+assignment of a vertex from G2 to each vertex in G1 such that no
+vertex in G2 is assigned more than once. The optimal assignment is the
+one that maximizes the similarity between G1 and the subgraph of G2
+induced by the vertex assignment. The similarity is computed in terms
+of the sum of edge- and vertex-wise attribute similarities.</p>
+<p>The Python code following creates a complete random graph with
+potentially non-uniquely weighted edges. From this graph a subgraph is
+extracted and a match attempt is made:</p>
+<pre class="literal-block">
+import networkx as nx
+from random import random, sample
+from yagma import GraphMatch
+
+# create random graph and extract subgraph
+G2 = nx.complete_graph(20)
+G2.add_weighted_edges_from((a,b,round(random(),2)) for a,b in G2.edges())
+G1 = nx.subgraph(G2, sample(G2, 10))
+
+# Perform match. Note that len(G1) &lt;= len(G2). This must always be
+# the case.
+assignment, strength = GraphMatch(G1, G2, k=5)(1)
+
+# compute a minimum spanning tree in G1 and match it in G2
+from yagma import TreeMatch
+T = nx.dfs_tree(nx.minimum_spanning_tree(G1))
+matches, score = TreeMatch(T, G2)()
+</pre>
+<p>The main algorithm component is a
+<a class="reference external" href="http://en.wikipedia.org/wiki/Color-coding">color coding</a> algorithm
+that (with high and specifiable probability) finds the optimal
+assignment between a (sub)-tree in G1 and G2. It is used as follows.
+Random subtrees of G1 of order <tt class="docutils literal">k</tt>
+are sampled and assignments are computed using the color coding
+algorithm. Each time a computed assignment contains (a,b) (i.e., vertex
+a from G1 is assigned to vertex b in G2), the recorded value of the
+pair (a,b) is incremented by the score of the assignment.
+Random subtrees are sampled and assignments are computed until each
+vertex in G1 has been assigned to at least <tt class="docutils literal">coverage</tt> times. If
+<tt class="docutils literal">star</tt> is <tt class="docutils literal">True</tt> then the trees generated will be stars. In the
+case of star trees, the <tt class="docutils literal">coverage</tt> parameter means that each
+vertex in G1 will be selected to be the root of a star <tt class="docutils literal">coverage</tt>
+times. The parameter <tt class="docutils literal">single</tt> can be set to <tt class="docutils literal">True</tt> if the color
+coding algorithm should be restricted to produce at most one
+assignment. Otherwise, all found assignments sharing the highest
+score will be used. The value of all vertex correspondence pairs (a,b)
+computed are  stored as weights in the bipartite graph with vertice
+sets V(G1) and V(G2). Finally, we solve the linear bipartite
+maximum matching problem using the
+<a class="reference external" href="http://en.wikipedia.org/wiki/Hungarian_algorithm">Hungarian algorithm</a>
+on this graph to produce the solution assignment. This is accomplished
+by:</p>
+<pre class="literal-block">
+assignment, strength = GraphMatch(G1, G2, k=k)(coverage=coverage)
+</pre>
+<p>strength is a dictionary that for each vertex in G1 gives a number
+reflecting how sharp the histogram of assignments (in the bipartite graph)
+from it to vertices in G2 is. If we know that all vertex and edge
+similarities are constrained to lie in the unit interval, we can
+bound the value of the optimal assignment and potentially stop
+early when an assignment of this value is found by setting
+<tt class="docutils literal">uisim</tt> to <tt class="docutils literal">True</tt>. If a function is supplied in the
+parameter <tt class="docutils literal">callback</tt>, this function will be called as:</p>
+<pre class="literal-block">
+callback(T, flist, s, cover, B)
+</pre>
+<p>where <tt class="docutils literal">T</tt> is the current random tree, <tt class="docutils literal">flist</tt> is a list of
+correspondence tuple lists, each representing an assignment, and
+all sharing the same best found score <tt class="docutils literal">s</tt>. The variables
+<tt class="docutils literal">cover</tt> and <tt class="docutils literal">B</tt> are two dictionary structures mapping a vertex
+in G1 to the number of times &quot;covered&quot; so far, and mapping a vertex
+in G1 to a dict mapping a vertex in G2 to a value representing the
+current strength of association, respectively.</p>
+<p>There is an option of using another algorithm <tt class="docutils literal">alg</tt>
+to compute a lower bound for the solution quality for each subtree.
+This can speed up the computation and decrease the memory needs of
+the color coding steps significantly. This is accomplished by:</p>
+<pre class="literal-block">
+assignment, strength = GraphMatch(G1, G2, quickbound=alg)()
+</pre>
+<p>The algorithm <tt class="docutils literal">alg</tt> is called as:</p>
+<pre class="literal-block">
+m = GraphMatch(G1, G2,...)
+value, assignment = alg(T, G2, m.check)
+</pre>
+<p>and is required to return a tuple consisting of a non-negative
+value and an assignment (for tree T, which will normally be discarded).
+A possible choice for <tt class="docutils literal">alg</tt> is <tt class="docutils literal">gaalign</tt>.</p>
+<div class="section" id="attributes-and-similarities">
+<h2>Attributes and Similarities</h2>
+<p>The graphs G1 and G2 can have arbitrary edge and vertex attributes. These
+are stored as <tt class="docutils literal">dict</tt> structures
+in the <tt class="docutils literal">networkx</tt> graph classes. The <tt class="docutils literal">GraphMatch</tt>
+constructor can take two arguments <tt class="docutils literal">v</tt> and <tt class="docutils literal">w</tt>. These functions
+compute vertex and edge similarities, respectively. Both take two dicts
+<tt class="docutils literal">h1</tt> and <tt class="docutils literal">h2</tt> representing the attributes of edges or vertices, and return
+a similartiy value in [0,1]. Higher value means higher similarity.
+The default values for these functions assume all attributes are numeric and
+lie in [0,1]. The mean of absolute differences in dict values sorted by dict
+keys is returned by both functions.
+In addition, for the stand-alone program <tt class="docutils literal">yagm.py</tt> the supplied
+<tt class="docutils literal">v</tt> returns 0 if the vertex attribute dict <tt class="docutils literal">h1</tt> of the vertex in
+G1 has more keys than <tt class="docutils literal">h2</tt>, the vertex dict of the vertex in G2.</p>
+</div>
+<div class="section" id="graph-types">
+<h2>Graph Types</h2>
+<p>The algorithm was designed for complete undirected simple graphs, but
+should work for directed graphs as well.</p>
+</div>
+</div>
+<div class="section" id="standalone-invocation">
+<h1>Standalone Invocation</h1>
+<p>Run as a standalone program the script yagm.py will attempt to find
+correspondences from vertices in the first input graph to vertices in the
+second input graph. These graphs can have associated numeric attributes, and
+each edge must have at least a 'weight' attribute.</p>
+<p>Let <tt class="docutils literal">g1.graphml</tt> and <tt class="docutils literal">g2.graphml</tt> be two files containig GraphML format
+descriptions of two graphs.</p>
+<p>Try (assuming a shell command line):</p>
+<pre class="literal-block">
+$ python yagm.py -h
+$ python yagm.py -e | less
+$ python yagm.py --test --tests 0.01
+$ python yagm.py -v g1.graphml g2.graphml --animate
+$ python yagm.py --test --vf2
+</pre>
+<p>The <tt class="docutils literal"><span class="pre">--vf2</span></tt> option will run the VF2 algorithm <a class="citation-reference" href="#cordella" id="id1">[Cordella]</a> as implemented
+in the package <tt class="docutils literal">networkx</tt>. Note that the VF2 algorithm is only
+suited for finding (sub-)graph isomorphisms and not monomorphisms in general.</p>
+<p>To generate a html version of this short explanation:</p>
+<pre class="literal-block">
+$ python yagm.py -e | rst2html &gt; explanation.html
+</pre>
+<p>rst2html is a part of the python docutils package
+<a class="reference external" href="http://docutils.sourceforge.net/docs/">http://docutils.sourceforge.net/docs/</a></p>
+<p>Note that the standalone program can also send the graph information and
+resulting vertex assignment to a <a class="reference external" href="http://ubietylab.net/ubigraph/">Ubigraph</a>
+server for visualization. Assuming the Ubigraph server is running on the
+local machine, try:</p>
+<pre class="literal-block">
+$ python yagm.py --test -v --ubigraph
+</pre>
+Here is a movie showing a Ubigraph animation of an assignment:<br>
+<video src=http://ptg.ucsd.edu/~staal/yagma/yagma.ogg width="320" height="240" controls></video><p>If animation between each matching of a subtree is wanted, one can
+supply the <tt class="docutils literal"><span class="pre">--animate</span></tt> option as well. Supplied without
+<tt class="docutils literal"><span class="pre">--ubigraph</span></tt> it causes the program to print out a line of statistics
+as well. A final such line is printed by the program if <tt class="docutils literal"><span class="pre">--xout</span></tt> is
+supplied. This allows collection of results of systematic
+experimentation, for example using the <tt class="docutils literal"><span class="pre">--test</span></tt> option.</p>
+<p>In order to speed up computations the <tt class="docutils literal">yagm</tt> OCaml program can be
+called to do the heavy lifting. This is done by supplying the
+<tt class="docutils literal"><span class="pre">--external</span></tt> option. This will assume that <tt class="docutils literal">yagm</tt> is on the path
+searched for executable programs. To supply an alternative name or
+location, use the:</p>
+<pre class="literal-block">
+--external_program
+</pre>
+<p>option. Try:</p>
+<pre class="literal-block">
+$ python yagm.py --test -v --external
+</pre>
+<p>In order to translate two graphs into the matrices used by <tt class="docutils literal">yagm</tt>
+we can use the <tt class="docutils literal"><span class="pre">--printawmatrix</span></tt> option.</p>
+<div class="section" id="ocaml-implementation">
+<h2>OCaml implementation</h2>
+<p>We also supply an OCaml implementation of our algorithm. It is
+supplied in the .ml files. If compiled into an executable
+<tt class="docutils literal">yagm</tt>, this executable takes three file names <tt class="docutils literal">tfile</tt>, <tt class="docutils literal">afile</tt> and
+<tt class="docutils literal">wfile</tt> containing input data and produces a matrix representing the
+bipartite graph <tt class="docutils literal">B</tt> from above. The file <tt class="docutils literal">tfile</tt> contains trees to
+be matched, one on each line. For input mode &quot;Similarity&quot;,
+<tt class="docutils literal">afile</tt> is a vertex similarity matrix, i.e., rows are indexed
+corresponding to a lexicographic ordering of G1 vertices and columns
+by the same for G2 vertices. Each entry is non-negative similarity
+value. The file <tt class="docutils literal">wfile</tt> is an edge similarity matrix. Entry (i,j)
+contains the similarity between edge i in G1 and edge j in G2. Edges
+in each graph are enumerated as in the row major linear storage of the
+adjacency matrix of the graph. In any case, self loops, i.e., the
+diagonals in the adjacency matrices, are omitted. In the undirected
+case, when the graph adjacency matrix is symmetric, the upper
+triangular entries are also omitted. Whether graphs are directed or
+not is determined by the dimensions of wmatrix which correspond to the
+number of counted edges (in the complete simple graphs).</p>
+<p>Alternatively, in the &quot;Adjacency&quot; input mode, the files <tt class="docutils literal">afile</tt> and
+<tt class="docutils literal">wfile</tt> can contain  representations of graphs G1 and G2. Each file
+contains then  the vertex weights on the first line, and its weighted
+adjacency matrix on the subsequent lines.</p>
+<p>The two different input formats have disadvantages and
+advantages. The similarity input mode has the disadvantage
+that is somewhat non-standard and grows exponentially in the
+order of the input graphs. The adjacency input mode grows polynomially
+in the graph orders but has the
+disadvantage that edge and vertex attributes are restricted to
+scalars (and similarity is defined in terms of absolute difference).</p>
+<p>Usage information can be obtained by issuing:</p>
+<pre class="literal-block">
+$ yagm -help
+</pre>
+<p>which produces:</p>
+<pre class="literal-block">
+yagm version 1.34. (c) 2011 Staal A. Vinterbo.
+usage: yagm [-e FLOAT] [-s INT] [-v] [-g] TFILE AFILE WFILE
+  -e : set eps to FLOAT.
+  -strict : stricter pruning of search space.
+  -m : files contain graph matrices (first row is vertex weights,
+       while following rows contain the weighted adjacency matrix).
+  -seed : seed random number generator with INT.
+  -v : print progress notes.
+  -stdin : specify stdin as input for this positional file argument.
+  -help  Display this list of options
+  --help  Display this list of options
+</pre>
+<p>Given two files <tt class="docutils literal">g1</tt> and <tt class="docutils literal">g2</tt> containing graphs in any format &quot;F&quot;
+supported by yagm.py, we can do:</p>
+<pre class="literal-block">
+$ yagm.py g1 g2 --I F --printawmatrix --output1 a.txt --output2 w.txt
+$ yagm t.txt a.txt w.txt &gt; b.txt
+</pre>
+<p>to create the adjacency matrix of the bipartite graph of collected
+sub-tree assignment values in <tt class="docutils literal">b.txt</tt> by matching trees in
+<tt class="docutils literal">t.txt</tt>.</p>
+<p>A makefile <tt class="docutils literal">Makefile</tt> is supplied, and the executable can be
+produced by issuing:</p>
+<pre class="literal-block">
+$ make yagm
+</pre>
+<p>if OCaml is available together with the <em>Batteries</em> library. This can
+possibly be followed by:</p>
+<pre class="literal-block">
+$ sudo make install.ocaml
+</pre>
+<p>to install the binary into a system dependent location.</p>
+</div>
+</div>
+<div class="section" id="installation-summary">
+<h1>Installation Summary</h1>
+<p>Download the latest tarred gzipped archive from the &quot;Download&quot; link
+above (say yagma-1.23.tar.gz), and do (unix/linux/mac os with
+development tools):</p>
+<pre class="literal-block">
+$ tar xzf yagma-1.23.tar.gz
+$ cd yagma-1.23
+$ make builds
+$ sudo make install
+</pre>
+<p>This will try to build the python egg and the compile the OCaml
+program and install them. If OCaml is not available do:</p>
+<pre class="literal-block">
+$ make egg
+$ make install.egg
+</pre>
+<p>to just install the python package. To create a pdf file of this text
+do:</p>
+<pre class="literal-block">
+$ make pdf
+</pre>
+<p>or to create a pdf technical report containing the information below
+for easier reading, do:</p>
+<pre class="literal-block">
+$ make paper
+</pre>
+</div>
+<div class="section" id="detailed-description">
+<h1>Detailed Description</h1>
+<p><strong>Abstract</strong>
+We present an inexact algorithm for finding a vertex assignment
+between general simple attributed graphs. While applicable to general
+graphs, the algorithm particularly targets complete
+graphs and is based on computing matches between random sub-trees of an
+<em>origin</em> graph to a <em>target</em> graph using a color coding algorithm.
+The computed sub-tree assignments together with their
+scores are combined to form a weighted bipartite graph between origin
+and target vertices. From this bipartite graph we compute a global
+assignment using the Hungarian algorithm, as well as derive
+beliefs in the correctness of the individual vertex correspondences.
+Computational experiments show that our algorithm significantly
+outperforms the SMAC graph matching algorithm by Cour et al. in terms
+of match quality on edge weighted complete graphs.
+Our implementation of color coding is based on the observation that color
+coding can be seen as a fold over trees. This results in a succinct
+declarative presentation of color coding for attributed trees that can
+easily be translated into efficient code with time complexity matching
+the best reported for this problem. Our color coding algorithm is also
+an example of graph matching as a catamorphism. Implementations in
+Python as well as OCaml are freely available under an open source
+licence.</p>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p>In the context of graph matching, the &quot;assignment&quot; or &quot;correspondence&quot;
+problem is the problem of finding a relation between the vertex sets of
+two graphs. Introducing directionality of the relation, we will
+say that the assignment assigns <em>origin</em> vertices to <em>target</em>
+vertices, and we will call the corresponding graphs the origin and target,
+respectively. The assignment problem is often characterized in terms
+of being &quot;exact&quot; or &quot;inexact&quot;. Exact matching requires <em>edge
+preservation</em> from origin to target. It means that if two origin vertices
+are endpoints of an edge, corresponding origin vertices are connected
+by an edge as well. If this does not hold, the matching is said to be
+&quot;inexact&quot;. If the assignment is injective, and the corresponding
+matching is exact, the assignment is a <em>monomorphism</em>. If the
+assignment is a monomorphism, and the induced subgraph has no
+extraneous edges, the assignment is called a <em>subgraph
+isomorphism</em>. If the assignment is a subgraph isomorphism and the
+target contains no extraneous vertices, the assignment is an
+<em>isomorphism</em>. Similarly to Cordella et al. <a class="citation-reference" href="#cordella" id="id2">[Cordella]</a> we can further
+distinguish between <em>syntactic</em> and <em>semantic</em> properties of an
+assignment. Syntactic properties are essentially the properties we
+described so far, while semantic properties pertain to the attribute values
+of vertices and edges. The VF2 algorithm of Cordella et
+al. can be used to find (syntactic) subgraph isomorphisms for which
+the corresponding attributes are equal according to some defined
+criterion (the authors describe this in terms of rules for syntactic
+and semantic <em>feasibility</em>).</p>
+<p>Whenever strutures can be described in terms of graphs,
+assignments can describe relationships between structures. In this
+sense, the assignment problem can be said to be a fundamental
+structural pattern recognition problem. Application ares of graph
+matching span image and video analysis, document processing (including
+hypertext documents), biometrics, biology and biomedicine. Conte et al
+<a class="citation-reference" href="#conte" id="id3">[Conte]</a> present an overview of many approaches and a taxonomy of
+algorithms.</p>
+<p>Our approach is motivated by the need for an algorithm that deals with
+the case where both the source and target are simple,
+complete, and possibly undirected. Furthermore, graph attributes
+should be allowed to be points from an arbitrary space
+equipped with a similarity function. Unfortunately, this problem is
+equivalent to finding a minimum weight $m$-clique in a near to
+complete $m,n$-partite graph (the tensor product of the origin and
+target). This problem in turn is not polynomial-time approximable in a
+complete graph within $2^{n^k}$ for any fixed $k&gt;0$ unless P=NP
+<a class="citation-reference" href="#mielikainen" id="id4">[Mielikainen]</a>, and it is not clear that the near-completeness improves the
+situation. Furthermore, the lack of constraints with regards to
+attribute spaces makes many approaches that take attribute space properties
+into account less appropriate or even inapplicable. Examples are
+methods from fields such as computer vision that take the geometry of
+images into account <a class="citation-reference" href="#torresani" id="id5">[Torresani]</a>, and methods that require <em>semantic</em>
+compatibility between origin and target <a class="citation-reference" href="#cordella" id="id6">[Cordella]</a>. For the latter, a
+problem is the requirement imposed by the propositional definition of
+feasibility. For example, the difference between edge weights of
+optimally corresponding edges in target and origin are not guaranteed to be
+smaller than an arbitrary number of non-corresponding ones.</p>
+<p>Key to our approach is that while the general problem is hard, it is
+tractable for small bounded tree-width origins <a class="citation-reference" href="#alon" id="id7">[Alon]</a>. The hope is
+that optimal assignments computed from tractable origin sub-trees can be
+composed to produce a high quality assignment
+overall. A problem is that of <em>deception</em>, by which we mean that a
+sub-tree is deceptive if it has optimal assignments that are not
+(fully) contained in a globally optimal assignment. Our strategy for
+dealing with such deceptive sub-trees is to consider them &quot;noise&quot;, and
+systematically sample random sub-trees from the origin for which we compute
+sub-assignments. Each individual correspondence (a vertex pair)
+in these sub-assignments is associated with the overall quality score
+of the sub-assignment and are collected to form a
+bipartite weighted graph <em>B</em> between the origin and target vertex
+sets. Finally, the Hungarian algorithm is applied to find a minimal
+cost matching in <em>B</em>, which is taken as the final overall
+assignment. This approach is <em>inexact</em> in that while it produces an
+injective assignment, it is not guaranteed that it is a
+monomorphism. We present experimental results showing that our
+approach presents a viable option.</p>
+<p>While the combination of sub-problem solutions is not novel in the
+graph matching context, our contribution lies in</p>
+<ul class="simple">
+<li>a general graph matching algorithm applicable to simple vertex and
+edge annotated graphs</li>
+<li>a description of color coding in terms
+of a fold, allowing almost direct translation of the description
+into code, resulting in</li>
+<li>a functional algorithm that has time complexity matching the best
+reported, implementable in less than hundred lines of Python or
+OCaml code, and</li>
+<li>the use of the bipartite graph to compute a &quot;belief&quot;
+measure for each vertex correspondence,</li>
+<li>publicly available open source implementations of the algorithm in
+Python and OCaml.</li>
+</ul>
+</div>
+<div class="section" id="methods">
+<h2>Methods</h2>
+<p>If $G$ is a graph, we let $V(G)$ denote the vertex set of $G$, and let
+$E(G)$ denote the edge set of $V$. Let $G_1$ and $G_2$ be two graphs.
+Let $w : E(G_1) \times V(G_2)^2 \to [0,1]$ be a similarity
+measure on edges, and let $v : V(G_1) \times V(G_2) \rightarrow
+[0,1]$ be a similarity measure on vertices. We can now formally
+state what we mean by the assignment problem as follows.</p>
+<p><strong>The Assignment Problem:</strong> Given $G_1$, $G_2$, $w$, and $v$, find injective
+$f : V(G_1) \rightarrow  V(G_2)$ such that  <span class="target" id="id8">(1)</span>:
+$$
+\sum_{a \in V(G_1)} v(a, f(a)) +
+\sum_{(a,b) \in E(G_1)} w((a,b),(f(a), f(b)))
+$$
+is maximized.</p>
+<p>If we create the <em>tensor product graph</em> $W$ of $G_1$ and $G_2$, and
+assign weights to vertices in $W$ using $v$ and weights to edges in
+$W$ using $w$, the assignment problem as defined above is equivalent
+to finding a maximum vertex and edge weight $m$-clique in
+$W$. As noted, this problem is not only NP-hard but also not
+polynomial-time approximable in a complete graph within $2^{n^k}$ for
+any fixed $k&gt;0$ unless P=NP <a class="citation-reference" href="#mielikainen" id="id9">[Mielikainen]</a>. Whether near-completeness
+improves the situation, is not clear. Disregarding vertex weights for
+a moment and identifying $W$ with its weighted adjacency matrix, the
+assignment problem can be formulated in terms of a quadratic optimization
+problem: find a binary $mn$ length vector $x$ such that:
+$$
+x^{T} W x
+$$
+is maximized subject to the condition that $x$ represents an
+injection. Torresani et al. <a class="citation-reference" href="#torresani" id="id10">[Torresani]</a> apply Pseudo-boolean
+optimization <a class="citation-reference" href="#boros" id="id11">[Boros]</a> to a formulation similar to the above one in order to
+address the assignment problem in the context of feature recognition
+in images. In general, applying algebraic machinery such as singular
+value decomposition and (semi-definite and quadratic) mathematical
+programming has been applied to the assignment problem. The main
+motivation for this is to create analytic approaches building on
+existing continuous optimization theory and methods as well as
+complementing the heuristics forced by the hardness of the
+problem. This is particularly true in image-based applications where
+the internal structure in an image is essentially Euclidian, and
+information stemming from this can be readily expressed in terms of
+mathematical programs.</p>
+<p>Our motivating application however does not allow us to make such
+assumptions. The edge weights represent similarity, but no further
+structural assumptions are made. Furthermore, the
+graphs are also mainly complete, immediately disallowing any direct
+applications of standard methods for unweighted problem instances.</p>
+<p>As stated, our approach is based on matching random origin subtrees
+by a color coding algorithm, and
+subsequently combining these subtree assignments into a global
+assignment. We now present the color coding
+algorithm, and the overall algorithm.</p>
+<div class="section" id="color-coding-by-folding">
+<h3>Color Coding By Folding</h3>
+<p>There are ${n! \over (n-m)!} \in O(n^m)$ possible
+assignments that potentially need to be investigated in order to find
+the optimal one. Alon, Yuster, and Zwick <a class="citation-reference" href="#alon" id="id12">[Alon]</a> noted that if the
+vertices of $G_2$ are randomly colored using $m$ colors, the
+probability $p_c$ of a particular order $m$ subgraph ending up
+colorful, i.e., all its vertices are uniquely colored, is $m!/m^m &gt;
+e^{-m}$. Consequently, if the random coloring is repeated using multiple
+independent trials, for a particular $m$ order subgraph to
+have been colorful in at least one trial with a probability at least
+$1 - \epsilon$, we must perform
+$$
+q \geq {\ln(\epsilon) \over \ln(1-p_c)}
+$$
+trials. Using that $\ln(1-x) &lt; -x$ and $\ln(x) = -\ln(1/x)$ for $0
+&lt; x &lt; 1$, we get that
+$$
+{\ln(\epsilon) \over \ln(1-p_c)}
+&lt; {\ln(\epsilon) \over -p_c} &lt; {\ln(\epsilon) \over -e^{-m}}
+= e^m\ln({1 \over \epsilon}).
+$$
+Hence, if we perform $q \geq e^m\ln(1/\epsilon)$ trials,
+any particular order $m$ subgraph of $G_2$ has been colorful at least
+once with probability at least $1 -
+\epsilon$.</p>
+<p>Furthermore, Alon et al. showed that if $G_1$ is of bounded
+threewidth, an isomorphism (if it exists) with a colored subgraph in
+$G_2$ can be found in time $O(2^m p)$ where $p$ is a polynomial
+in the size of the input. This means that if we consider $m$ and
+$\epsilon$ constant, i.e., not a part of the input, we can find an
+assignment (if it exists) from $G_1$ to $G_2$ with probability
+$1-\epsilon$ in polynomial time $O((2e)^m\ln(1/\epsilon) p)$.
+Alon et al. also present a derandomization of the algorithm,
+showing that the subgraph isomorphism problem for bounded treewidth
+graphs $G_1$ is <em>fixed parameter tractable</em> <a class="citation-reference" href="#downey" id="id13">[Downey]</a>.</p>
+<p>However, the (constant) factor $(2e)^m$ makes this color coding
+approach practical only for relatively small $m$. As an example, Dost
+et al. <a class="citation-reference" href="#dost" id="id14">[Dost]</a> report experimental results for $m$ of size 11 in their
+presentation a weighted (and inexact) version of the randomized color
+coding for matching tree structured pathways in
+protein interaction networks.</p>
+<div class="section" id="details-of-our-implementation">
+<h4>Details of our implementation</h4>
+<p>Consider the graph $G$ and the path $T$ given here:</p>
+<pre class="literal-block">
+               0
+               A
+          _.-'
+G:     1 B
+         |'.         E 3
+         |  `.      ,
+       2 C.._ `.  ,'
+             ``-D'
+                2
+
+T:       a -&gt; b -&gt; c -&gt; d
+</pre>
+<p>Each vertex in $G$ has a color in $\{0,1,2,3\}$ which is indicated
+next to the vertex. Note that we in the following associate with each
+vertex a value that is a vertex identifier, and hence
+unique. We model attributes of vertices (and edges) by accessor
+functions taking the identity as input and yielding the value as
+output. We associate each subgraph of $G$ with its
+<em>colorset</em>, i.e., the set of colors assigned to its vertices. We say
+that subgraph of $G$ is <em>colorful</em> if there are no two vertices in the
+subgraph that share a color, i.e., the cardinality of its colorset is
+equal to its order. We now want to find a colorful match for the
+directed path $T$ of length $m=4$ in $G$, in other words we want a
+vertex assignment from $T$ to a colorful subgraph of $G$. By
+inspection we see that there are two possibilities, the colorful path ABDE
+in $G$, or the reverse of this, starting at E. These are the only
+possibilities because C and D have the same color 2. Now, consider the
+case where we have matched the $k$ length path $(a,b,c)$ and wish to extend this
+with a match for $d$. The following table shows the possibilities.</p>
+<table border="1" class="docutils">
+<caption>Possible colorful match extensions of $(a,b,c)$ to $(a,b,c,d)$</caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">a</th>
+<th class="head">b</th>
+<th class="head">c</th>
+<th class="head">d</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>A</td>
+<td>B</td>
+<td>C</td>
+<td>/</td>
+</tr>
+<tr><td>A</td>
+<td>B</td>
+<td>D</td>
+<td>E</td>
+</tr>
+<tr><td>B</td>
+<td>D</td>
+<td>E</td>
+<td>/</td>
+</tr>
+<tr><td>C</td>
+<td>B</td>
+<td>A</td>
+<td>/</td>
+</tr>
+<tr><td>D</td>
+<td>B</td>
+<td>A</td>
+<td>/</td>
+</tr>
+<tr><td>E</td>
+<td>D</td>
+<td>B</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+<p>If we are only interested in answering whether there exists a match,
+we only have to store the colors and the prefix endpoint (the vertex
+to which the next vertex will be connected) of any matched $k$ length
+subpath in $G$.</p>
+<p>Now consider each extension of a match having a cost depending on
+which edge in $G$ is used (independently from previous edges used), and
+instead of wanting to determine whether a match exists, we want the
+cheapest match. Again it is enough to store the colorset and the
+prefix endpoint, but with the caveat that we also need to store
+information that lets us recover a cheapest path corresponding with a
+given colorset and endpoint. One way to do this is to also store at
+each step the value of the cheapest prefix as well as the prefix
+itself. Alternatively, Huffner <a class="citation-reference" href="#huffner" id="id15">[Huffner]</a> proposes storing the order
+of the colors instead of the prefix itself, and then recover the
+sequence at the end by backtracking. Storing each entry in the prefix
+costs $\log(n)$ bits, while storing each entry in the color order
+costs $\log(m)$ bits, representing savings in storage space at the
+cost of the recovery.</p>
+<p>The above approach of path extension can be thought of as
+processing of the ordered list of vertices in $T$ much
+like we would compute the sum of integers in a list using a binary
+operation. At each step a vertex from $T$ is combined with a table to
+produce a table. The result is then read out of the final
+table. Considering that a list is a recursive data structure, this
+pattern of recursion is called a <em>fold</em> or &quot;reduction&quot; of the list.</p>
+<p>In the path matching approach above we extended a prefix of length $i$
+with endpoint $u$ matched to $T$ vertex $q_i$ by considering all edges
+$(u,v)$ in $G$ as a match for edge $(q_i, q_{i+1})$ in $T$. If we
+think in terms of edges instead of vertices, the fold can equivalently
+be expressed as a fold over the edges of $T$ in pre-order.
+For the path problem, we know that each edge to be added originates
+(is incident to) at the last vertex added. This is not so in general
+for trees. The next edge origin might be any already visited vertex.
+Consider the tree $G_1$ with vertices A,B,C,D,E
+below:</p>
+<pre class="literal-block">
+                           ,-&quot;&quot;&quot;--.
+                          /       |  A root
+                         /   A    |
+                       ,'   ,'    /
+                      /    /     /
+                    ,'   ,'     /
+B prefix endpoint  /   ,'      /
+                 ,'   B._     |
+               ,'  ,-  \ `--._|
+             ,' ,-'     \     |`-..
+             | C     _.  D    /     E    Next child
+             L     ,'  `.    |
+              `._,'      `--'
+
+
+                      D last visited
+</pre>
+<p>Assume we have already visited vertices A, B, C, and D in pre-order,
+indicated by the drawn envelope of this subtree. The
+vertex D is the last visited vertex, A is the root, while the next
+parent is B representing the prefix endpoint. All the candidate
+colorful trees in $G_2$ are extended at the point corresponding to B
+adding an edge to a point which will be put in correspondence with
+E. Consequently, all trees sharing the same colorset and prefix endpoint
+also share the same possible extensions, which means that we only need
+to store information on one tree for each possible (colorset,
+endpoint) pair in order to determine whether there
+exists a tree match or compute the minimum cost match. In the
+following we will use a mapping data structure &quot;table&quot; that maps a
+(colorset, vertex) pair to stored information.</p>
+<p>In the following we turn to details of how we implement the above
+ideas. We write function applications and
+definitions much like it is done in the functional programming
+languages OCaml and Haskell. Let <tt class="docutils literal"><span class="pre">(h::t)</span></tt>
+denote a list that has <tt class="docutils literal">h</tt> as a
+first element and the list <tt class="docutils literal">t</tt> containing the rest of the
+elements. The infix list construction operator <tt class="docutils literal">::</tt> is often called
+&quot;cons&quot; and we could have equivalently defined <tt class="docutils literal"><span class="pre">(h::t)</span></tt> in terms of
+a prefix application like <tt class="docutils literal"><span class="pre">(::)</span> h t</tt> when we use the convention that
+we can convert an infix operator into a prefix function by enclosing it
+in parentheses. Also let <tt class="docutils literal">[]</tt> denote the empty
+list. The list containing elements 1,2, and 3 in that order can then
+be written as <tt class="docutils literal"><span class="pre">(1::2::3::[])</span></tt> or <tt class="docutils literal"><span class="pre">(::)</span> 1 <span class="pre">((::)</span> 2 <span class="pre">((::)</span> 3
+<span class="pre">[]))</span></tt>. Now recall that <tt class="docutils literal">(+) x y = x + y</tt>, and let us substitute
+<tt class="docutils literal"><span class="pre">(::)</span></tt> in the above list with <tt class="docutils literal">(+)</tt>, and <tt class="docutils literal">[]</tt> with <tt class="docutils literal">z =
+0</tt>. Then we get <tt class="docutils literal">(+) 1 <span class="pre">((+)</span> 2 <span class="pre">((+)</span> 3 z)) = (1 + (2 + (3 +
+<span class="pre">0)))</span></tt>. This substitution of function calls (and <tt class="docutils literal">z</tt>) for type
+constructors in recursively defined data types is called a <em>fold</em>. For
+lists as we defined them, we can define a <tt class="docutils literal">fold</tt> function as
+follows:</p>
+<pre class="literal-block">
+fold g z []    = z
+fold g z (h::t) = g h (fold g z t)
+</pre>
+<p>We can get the above fold example by letting <tt class="docutils literal">g = (+)</tt> and <tt class="docutils literal">z =
+0</tt>, i.e., <tt class="docutils literal">fold (+) 0 <span class="pre">(1::2::3::[])</span></tt>.</p>
+<!-- comment
+
+A useful property of many
+functional languages is *partial application* which
+means that we can create a new function from a function that is
+applied only to a some of its arguments. For example, we could
+define summation of all elements in a list as::
+
+ sum list = fold (+) 0 list
+
+Using partial application, we can define ``sum`` equivalently as::
+
+ sum = fold (+) 0
+
+This notation, when leaving out arguments of one argument (unary)
+functions is sometimes called "point-free". Using this point-free
+notation we can, again -->
+<p>Using a fold, we can define standard list processing
+functions in term of fold as:</p>
+<pre class="literal-block">
+map f list = fold (x t -&gt; (f x)::t) [] list
+filter p list = fold (x t -&gt; if p x then x::t else t) [] list
+concat l1 l2 = fold (::) l2 l1
+</pre>
+<p>where <tt class="docutils literal">(arguments <span class="pre">-&gt;</span> expression)</tt> means the unnamed function that
+when given arguments <tt class="docutils literal">arguments</tt> returns the value of
+<tt class="docutils literal">expression</tt>. The function <tt class="docutils literal">map</tt> applies the function <tt class="docutils literal">f</tt> to
+all elements in <tt class="docutils literal">list</tt> in turn and returns the list of results,
+<tt class="docutils literal">filter</tt> takes a predicate <tt class="docutils literal">p</tt> and a list <tt class="docutils literal">list</tt> and returns the
+sub-list of elements in <tt class="docutils literal">list</tt> for which <tt class="docutils literal">p</tt> is true, while <tt class="docutils literal">concat</tt>
+concatenates two lists. Concatenation of lists is for conveniance often
+denoted by an infix operator.
+We will use <tt class="docutils literal">++</tt>, i.e., <tt class="docutils literal">a ++ b = concat a b</tt>.</p>
+<!-- comment
+
+Point-free notation is particularly helpful
+when creating computations that are chains of function
+applications. In order to express this, we use the function
+composition operator ``.``, i.e.::
+
+ (f . g) x = f (g x)
+
+Consider as an example computing the sum of squared
+elements in a list::
+
+ sumsquare = sum . (map square)
+
+where ``square x = x * x``. Related to partial application is the
+*sectioning* of binary operators. Let ``op`` be such an operator
+(e.g., "+"), then::
+
+ (a op) b = a op b
+ (op b) a = a op b
+
+For example, we can from binary addition create a one argument
+function ``inc = (+ 1)`` that increments its argument by
+sectioning. We can now define the ``(++)`` binary operator that
+concatenates two lists in terms of fold using sectioning as::
+
+ (++ l2) = fold (::) l2 -->
+<p>Of particular interest for us later is the <tt class="docutils literal">foldl</tt> function:</p>
+<pre class="literal-block">
+foldl f z []     = z
+foldl f z (h::t) = foldl (f z h) t
+</pre>
+<p>This function is called a <em>left</em> fold in that it instead of processing
+a list in a right to left manner, processes it in a left to right
+manner instead. So <tt class="docutils literal">foldl (+) 0 <span class="pre">(1::2::3::[])</span></tt> is <tt class="docutils literal">((0 + 1) + 2) +
+3</tt>. We can define <tt class="docutils literal">foldl</tt> in terms of <tt class="docutils literal">fold</tt> as:</p>
+<pre class="literal-block">
+foldl f z l = fold (x g -&gt; (a -&gt; g (f a x))) (x -&gt; x) l z
+</pre>
+<p>As Hutton <a class="citation-reference" href="#hutton" id="id16">[Hutton]</a> points out, while programs written using fold can
+be less readable, they can be constructed systematically and can more
+easily be analyzed and transformed. This, and the expressive power of
+using folds, are reasons why we in the following express color
+coding in terms of folds.</p>
+<p>Returning to the path matching example, we now see that if we have an
+operation <tt class="docutils literal">g</tt> that takes as input a table and a vertex and
+returns a table, we can compute the final table <tt class="docutils literal">t</tt> as:</p>
+<pre class="literal-block">
+finaltable vertices = foldl g emptytable vertices
+</pre>
+<p>For path matching, we know that the prefix endpoint is the latest seen
+vertex, hence <tt class="docutils literal">vertices</tt> can be a simple ordered list of
+vertices. In the tree case, as we have discussed above, this
+assumption does not hold and <tt class="docutils literal">vertices</tt> must contain
+information about which vertex is the endpoint for each prefix.</p>
+<p>Now consider a recursively defined data type <tt class="docutils literal">Tree</tt> that consists of
+vertices <tt class="docutils literal">Vertex v s</tt> where <tt class="docutils literal">v</tt> is the vertex label and <tt class="docutils literal">s</tt> is a list of
+subtree root vertices. Note that this data type has two constructors,
+<tt class="docutils literal">Vertex</tt> for creating the (label, subtree) tuple, and &quot;cons&quot; or <tt class="docutils literal"><span class="pre">(::)</span></tt>
+for creating the subtree list. Similarly to fold for lists, we can
+define a fold on trees by substituting functions for the type
+constructors (and again an initial element <tt class="docutils literal">z</tt> for <tt class="docutils literal">[]</tt> in the subtree
+list signifying that <tt class="docutils literal">Vertex label []</tt> is a leaf):</p>
+<pre class="literal-block">
+treefold  f g z (Vertex label subtrees) =
+  f label (treefolds f g z subtrees)
+treefolds f g z []     = z
+treefolds f g z (h::t) = g (treefold f g z h) (treefolds f g z t)
+</pre>
+<p>The function <tt class="docutils literal">f</tt> takes the place of the <tt class="docutils literal">Vertex</tt> constructor, the
+function <tt class="docutils literal">g</tt> takes the place of &quot;cons&quot; in the subtree list, and
+<tt class="docutils literal">z</tt> the place of <tt class="docutils literal">[]</tt>. The auxiliary function <tt class="docutils literal">subtrees</tt> is
+essentially a fold over the subtree list. We can define the following
+tree processing functions using <tt class="docutils literal">treefold</tt>:</p>
+<pre class="literal-block">
+preorder tree = treefold (::) (++) [] tree
+order tree = treefold (y x -&gt; x + 1) (+) 0 tree
+</pre>
+<p>Here, <tt class="docutils literal">preorder</tt> returns the list of vertex labels in preorder,
+while <tt class="docutils literal">order</tt> returns the number of vertices in the tree.</p>
+<p>An ordered tree, which our <tt class="docutils literal">Tree</tt> data type represents, is
+isomorphic to its pre-order edge list. We can obtain this list using
+<tt class="docutils literal">treefold</tt> as:</p>
+<pre class="literal-block">
+f label s = (label, fold ((i, l) res -&gt; (label, i)::(l ++ res)) [] s)
+preedges tree = snd (treefold f (::) [] tree)
+</pre>
+<p>where <tt class="docutils literal">snd (a,b) = b</tt>. As a path is isomorphic to its preorder
+vertex list, and we could fold over this in the path matching example
+above, we can now analogously fold over the pre-order edge list when
+matching trees:</p>
+<pre class="literal-block">
+finaltable tree = foldl g emptytable (preedges tree)
+</pre>
+<p>We now turn to the question of how to implement the binary operation
+<tt class="docutils literal">g</tt> we want to use in the fold over pre-order edge list. To this end let a
+(sub-)tree in $G$ be stored in a structure that has the information
+retrieval functions <tt class="docutils literal">colorset</tt>, <tt class="docutils literal">endpoint</tt>, <tt class="docutils literal">score</tt> defined on
+it. Also, let <tt class="docutils literal">addvertex tree edge v</tt> add the vertex
+<tt class="docutils literal">v</tt> to the structure instance <tt class="docutils literal">tree</tt> and update information stored in it
+accordingly using that the current edge in the origin tree is
+<tt class="docutils literal">edge</tt>. Also let <tt class="docutils literal">init v</tt> produce a structure containing only the
+root <tt class="docutils literal">v</tt>. Of the above functions, the <tt class="docutils literal">addvertex</tt> function needs to have
+access to information from which it can compute the new colorset and
+endpoint of the tree, as well as the score. We will not address this
+function in further detail. Also let <tt class="docutils literal">empty</tt> denote an empty tree
+structure.</p>
+<p>As discussed above, we need to be able to store trees indexed by their
+colorsets and endpoints. Let <em>table</em> be a generic map type from
+(colorset, endpoint) keys to trees. Associated with the map type are
+functions <tt class="docutils literal">items</tt> which yields a sequence (e.g., a list) of elements
+(trees) stored in the map instance, <tt class="docutils literal">update</tt> which, given a tree,
+stores the tree at its (colorset, endpoint) entry either if there is
+no tree there already, or if the already stored tree has a lower
+score, and <tt class="docutils literal">new ()</tt> which creates a new empty store. Also, let the
+function <tt class="docutils literal">max</tt> extract a maximum score tree from the store.</p>
+<p>We can now define a function that takes a tree and an augmented edge
+and produces all colorful extensions of this tree as:</p>
+<pre class="literal-block">
+extend edge tree =
+  [addvertex tree edge v | v &lt;- successors G (endpoint tree) and
+                       (color v) not in (colorset tree) ]
+</pre>
+<p>The notation <tt class="docutils literal">[expr | v &lt;- gen and pred]</tt> is a <em>list comprehension</em>
+and means the list of all values of expression <tt class="docutils literal">expr</tt> for all
+elements <tt class="docutils literal">v</tt> generated by expression <tt class="docutils literal">gen</tt> for which expression
+<tt class="docutils literal">pred</tt> evaluates to true. Functions <tt class="docutils literal">successor G u</tt> yields all
+<tt class="docutils literal">v</tt> such that there is an edge <tt class="docutils literal">(u, v)</tt> in graph <tt class="docutils literal">G</tt>, and
+<tt class="docutils literal">color v</tt> yields the color associated with vertex <tt class="docutils literal">v</tt> in <tt class="docutils literal">G</tt>. We
+can now define the operation <tt class="docutils literal">g</tt> that takes as input a <em>table</em>
+instance and an augmented edge and returns a <em>table</em> instance as:</p>
+<pre class="literal-block">
+g table edge =
+  let op table' tree = foldl update table' (extend edge tree) in
+  foldl op (new ()) (items table)
+</pre>
+<p>The function <tt class="docutils literal">g</tt> works by iteratively extending each tree in the
+given table into a list of trees from which an initially empty table
+is populated. We can then now encode a trial of color coding as:</p>
+<pre class="literal-block">
+trial tree =
+  let table = foldl update (new ()) [init u | u &lt;- (vertices G)] in
+  max (foldl g table (preedges tree))
+</pre>
+<p>The <tt class="docutils literal">trial</tt> function first creates an initial table containing only
+single vertex trees, one for each vertex in $G$. Then it folds <tt class="docutils literal">g</tt>
+over the augmented edge list computed from <tt class="docutils literal">tree</tt> creating a final
+table from which a maximum score tree is extracted and returned. Once
+enough trials have been performed, the best matching tree can be
+translated into an assignment.</p>
+<p>In fact, any subtree produced during the execution of <tt class="docutils literal">trial</tt> can be
+translated into a sub-assignment. In fact, we can consider sub-trees
+as sub-assignments and vice versa. Now, given a sub-assignment $f'$ of
+with value $\sigma'$ we could decide if $f'$
+could be extended to an optimum assignment $f$ with value $\sigma^*$
+if we knew the largest possible value $\sigma''$ associated with this
+extension. If we knew this, we could at any stage in the algorithm,
+and in the computation of <tt class="docutils literal">g</tt> in particular, prune away
+subassignments that would never be extendable to an optimum
+assignment, i.e., prune $f'$ if $\sigma' + \sigma'' &lt;
+\sigma^*$. The time and space savings of this
+would be significant! Note that while $\sigma''$ and $\sigma^*$ are in
+general not available, any approximation $\sigma''_{\sim}$ and
+$\sigma^*_{\sim}$ such that $\sigma''_{\sim} \geq \sigma''$ and
+$\sigma^*_{\sim} \leq \sigma^*$ can be used. For $\sigma^*_{\sim}$ we
+can at any time use the best encountered value so far. For the
+subassignment $f'$ of size $k&gt;0$ we know that the extension to $f$
+involves $m-k$ edges and $m-k$ vertices. We can thus find an upper
+bound $\eta_i + \alpha_i$ for $\sigma''$ by computing $w(e, e'')$
+for $(e,e'') \in E(G_1) \times E(G_2)$ and computing $\eta_i$
+as the sum of the $i$ largest of these, and computing $v(a,b)$ for $(a,b)
+\in V(G_1) \times V(G_2)$ and letting $\alpha_i$ be the sum of the
+$i$ largest of these. We then perform pruning by setting
+$\sigma''_{\sim} = \eta_{m-k} + \alpha_{m-k}$ when considering $f'$ of
+size $k$. Alternatively, as Huffner
+et al. <a class="citation-reference" href="#huffner" id="id17">[Huffner]</a> suggest for their
+their path matching algorithm, we can exhaustively compute $\sigma_i$
+for $i \leq l$ for small $l$, and compute $\sigma_i$ for $i &gt; l$ as
+the smallest sum of $\sigma_j$ such that $j \leq l$ and $\sum_j j =
+i$. Given a function <tt class="docutils literal">keep tree</tt> that returns false if the
+sub-assignment associated with <tt class="docutils literal">tree</tt> cannot be extended to full
+assignment with a score that exceeds the currently best known
+$\sigma''_{\sim}$, we can perform the filtering by inserting a call
+to <tt class="docutils literal">keep</tt> into <tt class="docutils literal">extend</tt> as:</p>
+<pre class="literal-block">
+extend edge tree =
+  filter keep [addvertex tree edge v
+               | v &lt;- successors G (endpoint tree)
+                 and ((color v) not in (colorset tree)]
+</pre>
+</div>
+<div class="section" id="trial-time-complexity-analysis">
+<h4>Trial Time Complexity Analysis</h4>
+<p>In the above algorithm, when processing edge $i$ (1-indexed) we are
+processing the trees in a map data structure that maps colorsets of
+length $i$ and a prefix endpoint to trees. Consequently, we are
+processing at most $n{m \choose i}$ trees for edge $i$. Now
+consider a particular tree with colorset $C$ and endpoint $u$.
+This particular prefix can only be extended with vertices that are adjacent
+to $u$ in $G$. This means that we for all trees in the map with colorset
+$C$, we only need to consider edges in $(u,v) \in E(G)$ for which $u$
+is an actually occurring prefix endpoint. In short, for each colorset
+$C$ we need to consider at most $| E(G)
+| $ possible extensions, making the total number of extensions we need
+to process $| E(G) | {m \choose i}$ for edge $i$. Since we are
+extending as many times as there are edges in the tree, each time with
+a colorset size that has increased by one, we get that we are
+processing at most
+$$
+\sum_{i=1}^{m-1} | E(G) | {m \choose i} \in O( | E(G) | 2^m)
+$$
+extensions. We now assume that computing the score of an extension
+takes constant time, as does accessing the list of successors of a
+vertex in $G$. The two remaining steps of processing an
+extension is updating the structure (<tt class="docutils literal">addvertex</tt>), and the update of
+the map data structure. Updating the tree structure entails adding a
+color to a colorset, storing the new score, and adding a vertex to a
+list. For colorsets smaller than the length of machine registers, this
+update can be considered constant time. This is not a real limitation
+as the processing of $2^k$ trees becomes impractical for $k$
+significantly smaller than modern machine register lengths. There are
+two subtle points associated with the implementation of the tree
+structure. It would be easy for <tt class="docutils literal">addvertex</tt> to return a
+complete copy of the original tree together with updates making up the
+extension. This would make the running time of <tt class="docutils literal">addvertex</tt> a
+function of the input. This can be avoided by having all extensions
+share the common part of the structure, for example by storing the
+vertices encountered in reverse order in a linked list. The other
+subtle point is keeping track of the next endpoint. If we keep track
+of the index of this endpoint and keep the tree structure in a list as
+proposed, the <tt class="docutils literal">endpoint</tt> function has to traverse a list of $O(i)$ every
+time for origin edge number $i$. However, since the structure of the tree is
+known a priori, we can let the tree representation have a stack that
+can in constant time be used to compute the next endpoint. Like the
+tree vertex list, extensions of a tree share the common part of the
+stack. Consequently, the extensions of a tree can each be done in
+constant time with this scheme at the cost of storing an additional
+$O(log(m))$ size stack for each tree. If we allocate a $n2^m$ table of
+empty tree references up front, <tt class="docutils literal">new</tt> does nothing and <tt class="docutils literal">update</tt>
+takes constant time. Using combinatorial number systems <a class="citation-reference" href="#knuth" id="id18">[Knuth]</a> and
+color sets encoded in register size bitvectors, we can produce all
+colorsets of a given size $i$ in ${m \choose i}$ time. This means
+that <tt class="docutils literal">items</tt> for the lookup-table takes at most $n{m \choose i}$
+time (it can also disregard empty entries in the table). Since items
+is called once for each edge, we get that the resulting running time is
+$$
+\sum_{i=1}^{m-1} | E(G) | {m \choose i} + n{m \choose i} \in O( | E(G) | 2^m)
+$$
+for any connected graph. This approach also has a best case running
+time in $\Omega(| E(G) | 2^m)$, and takes $O(n2^m)$ and
+$\Omega(n2^m)$ space. At the cost of an additional $O(n2^m)$
+in processing time, we can instead of allocating the table up front,
+allocate a table of size $n{m \choose i}$ at step $i$. Space
+consumption is then only $O(n { m \choose \lceil m/2 \rceil })$.,
+but the asymptotic running times stay the same. Another option is to
+use a dynamic map structure that stores only what is
+needed. Allocating a new structure at step $i$ with <tt class="docutils literal">new</tt> then
+becomes constant, but <tt class="docutils literal">update</tt> becomes $O(\log (n{m \choose i}))$
+resulting in a running time
+$$
+O(\sum_{i=1}^{m-1} | E(G) | {m \choose i}\log(n{m \choose
+i})) \subseteq O(m | E(G) | 2^m) .
+$$
+This bound is no longer tight, and using a dynamic table can in
+practice be faster than the $O(| E(G) | 2^m)$ approach when pruning is
+effective. Also the $O(n { m \choose \lceil m/2 \rceil })$ space
+bound is not tight, as only actually constructed colorful extensions
+for each origin edge are stored and processed.</p>
+</div>
+</div>
+<div class="section" id="the-overall-algorithm">
+<h3>The Overall Algorithm</h3>
+<p>The color coding algorithm $match$
+can be applied only in cases where $G_1$ is a small tree. Then, it is
+optimal with a specified probability as well as reasonably efficient,
+particularly when we can obtain a good bound for $\sigma^*_{\sim}$
+early on.</p>
+<p>As stated previously, our overall approach is to</p>
+<ol class="arabic simple">
+<li>sample subtrees of $G_1$,</li>
+<li>compute assignments for these, and</li>
+<li>assemble a global assignment from the subtree assignments.</li>
+</ol>
+<p>We randomly sample an order $k$ subtree of the general graph $G_1$ by
+randomly sampling $k$ vertices $V'$ from $V(G_1)$, and then computing
+a random spanning subtree from the subgraph of $G_1$ induced by $V'$. The
+spanning subtree is computed by temporarily assigning random weights and
+subsequently computing a minimum spanning tree. Finally, the original
+edge values in this tree are restored. A second subtree sampling
+option implemented is to sample random stars from $G_1$. For a given
+root vertex, we create a random star by randomly sampling $k-1$
+neighbors and connecting these with the edges from $G_1$. This is done
+for the vertices in $G_1$ in turn.</p>
+<p>Once a subtree has been sampled, a set of assignments with corresponding
+value $\sigma$ is computed using $match$.
+Every time an assignment $f$ with value $\sigma_f$ is computed,
+$\sigma_f$ is added to the weight of the initially 0 weighted edge
+$(a,b)$ for all $(a,b) \in f$ in the complete bipartite graph $B =
+V(G_1) \times V(G_2)$.
+The procedure of subsampling a tree, computing $f$ and $\sigma_f$,
+and updating $B$ is repeated until each vertex $a$ in $V(G_1)$ has
+been assigned to at least a predetermined number $coverage$
+times.
+Once this has been achieved, a value $strength(a)$ is computed for
+each $a \in V(G_1)$ by
+$$
+1-2(n(n-1))^{-1}\sum_{i=0}^{n - 2} \sum_{j=i+1}^{n - 1} s_i*s_j,
+$$
+where $(s_0, s_1, \ldots, s_{n-1})$ are the $n$ weights of edges
+incident on $a$ in $B$.
+Let $f$ be any function defined on a
+set $S$. Then, let $\{S_i\}_i$ be the partition induced by $f$ where
+$x$ and $y$ are in the same equivalence class if $f(x) = f(y)$. If we
+let $s_i$ be the cardinality of $S_i$, then
+$$
+\sum_{i=0}^{n - 2} \sum_{j=i+1}^{n - 1} s_i*s_j
+$$
+is the number of unordered pairs of elements in $S$ that $f$ discerns
+between. Hence, the value $strength(a)$ can be interpreted as the lack of
+variability in the computed assignments for $a$.
+Finally, all edge weights in $B$ are negated and the Hungarian
+algorithm is applied to compute a minimum cost assignment from
+$B$. This assignment and the values $strength$ are the output of the
+overall algorithm.</p>
+<div class="section" id="classification-of-problem-instances">
+<h4>Classification of problem instances</h4>
+<p>Borrowing the term &quot;deceptive problem instances&quot; from the
+evolutionary algorithms literature we define
+deceptive matching problem instances as follows.
+First, for a problem instance $(G_1, G_2)$, and an assignment
+$f : V(G_1) \to V(G_2)$, let $\sigma_{(G_1, G_2)}(f)$ be the score of
+the assignment for this problem instance. Now, let $F_{(G_1, G_2)}$ be
+the set of optimal assignments all sharing the same optimal score
+$\sigma^*_{(G_1, G_2)} = \sigma(f)_{(G_1, G_2)}$ for $f\in F_{(G_1,
+G_2)}$. Also, let $\mathcal{S}_k(G)$ denote the set of order $k$
+subgraphs of $G$. For an assignment $f : V(G_1) \to V(G_2)$ we define
+the set of $k$-<em>deceptive</em> subgraphs of $G_1$ as the set $D^k_{(G_1,
+G_2)}(f)$ of $k$ order subgraphs for which the restriction of $f$ is
+not optimal. Formally,
+$$
+D^k_{(G_1, G_2)}(f) = \{G \in \mathcal{S}_k(G_1) |
+\sigma^*_{(G, G_2)} &lt; \sigma(f|_{V(G)})_{(G, G_2)}\}.
+$$
+For the purpose of this discussion, we will call a problem instance
+$(G_1, G_2)$ <em>$k$-deceptive</em> if there exists $f \in F_{(G_1, G_2)}$ such
+that $D^k_{(G_1, G_2)}(f) \neq \emptyset$. Such an $f$ will also be
+called $k$-deceptive. We could use $D^k_{(G_1,
+G_2)}$ to build hierarchies of deceptiveness, levels
+could be defined by requiring that all $f \in F_{(G_1, G_2)}$ be
+$k$-deceptive, then by intersections of $D^k_{(G_1, G_2)}(f)$ for
+$f \in F_{(G_1, G_2)}$, being deceptive for $l \leq k$, and so
+forth. However, an investigation of such lies outside
+the scope of this discussion. However, we can say that the degree of
+$k$-deceptiveness of a problem instance $(G_1, G_2)$ is related to the
+minimum size of $D^k_{(G_1, G_2)}(f)$ taken over all $f \in F_{(G_1,
+G_2)}$.</p>
+<p>We now define <em>quasi-deceptiveness</em>. Formally, let
+$$
+Q^k_{(G_1, G_2)}(f) = \{G \in \mathcal{S}_k(G_1) |
+\sigma^*_{(G, G_2)} \leq \sigma(f|_{V(G)})_{(G, G_2)}\}.
+$$
+We now have that $D^k_{(G_1, G_2)}(f) \subseteq Q^k_{(G_1,
+G_2)}(f)$. Analogous to k-deceptiveness we define $(G_1, G_2)$
+<em>quasi $k$-deceptive</em> if there exists $f \in F_{(G_1, G_2)}$ such
+that $Q^k_{(G_1, G_2)}(f) \neq \emptyset$. This $f$ will also be
+referred to as being quasi $k$-deceptive. If an instance or assignment
+is quasi $k$-deceptive but not $k$-deceptive we call it <em>strictly quasi
+$k$-deceptive</em>. Again, we say that the degree of (strictly) quasi
+$k$-deceptiveness of $(G_1, G_2)$ is related to the minimum size of
+($Q^k_{(G_1, G_2)}(f) - D^k_{(G_1, G_2)}(f)$) $Q^k_{(G_1, G_2)}(f)$
+taken over all $f \in F_{(G_1, G_2)}$.</p>
+<p>Our subsampling strategy rests on the assumption that we can treat
+deceptiveness as noise that can be addressed by sub-sampling.
+We also note that any non-weighted subgraph monomorphism problem is at
+most strictly quasi deceptive when a solution exists.</p>
+</div>
+</div>
+</div>
+<div class="section" id="computational-experiments">
+<h2>Computational Experiments</h2>
+<p>Experiments were run on a Dell Precision T5400 with a
+Intel(R) Xeon(R) CPU E5430 running at 2.66GHz and 8GB ram. The algorithm was
+implemented in Ocaml and in Python, the latter an interpreted language. No
+multi-processing was used, meaning that each experiment ran on one
+core only.</p>
+<p>For all experiments, each individual test problem instance was
+instantiated as follows. A complete graph $G_2$ of a given order $n$ was
+created. Each edge was assigned a random weight from the unit
+interval. Finally, each edge weight $w_\text{old}$ was rounded using
+the following procedure:
+$$
+w_\text{new} = [w_\text{old} * 20]/20
+$$
+where $[x]$ denotes the rounding of $x$ to the nearest integer value.
+This means that weights are uniformly chosen among a set of 21
+possible values. From this graph $G_2$ a random size $m$ set of
+vertices from $G_1$ and $G_2$ is then chosen as the subgraph induced
+by this vertex set. If a tree is desired, a random spanning tree of
+$G_1$ is computed. Consequently, the optimal assignment has score
+$m(m-1)/2 + m$ if $G_1$ is complete, and $m*2 - 1$ if $G_1$ is a
+tree.</p>
+<p>If we were not to round the weights in the random graph, the problem
+would with high probability be solvable in polynomial time in the
+number of edges as for each edge in $G_1$ there would be just one edge
+in $G_2$ having the same weight.</p>
+<p>The probability of solution uniqueness when $G_1$ is tree can be
+expressed as function of $m$ and $n$ and bounded by considering the
+probability sampling two length $m$ sequences of edges that exhibit
+identical corresponding sequences of weights.</p>
+<div class="section" id="color-coding-efficiency">
+<h3>Color Coding Efficiency</h3>
+<p>In order to assess the efficiency of our color coding algorithm, we performed the following
+experiments. Due to the size of the trees, the OCaml implementation of
+the algorithms was used. For each $(m,n) \in \{5,8,10\} \times
+\{50,100\}$ we computed 10 instances $(G_1, G_2)$ of orders $m$ and
+$n$, respectively. Also, the $G_1$ graphs were all trees, while the
+$G_2$ graphs were all complete, undirected and simple. The color coding error probability was
+constant at $\epsilon = 0.2$. A summary of the results from this
+experiment can  be seen in the table below.  The columns contain for
+each $(m,n)$ pair the mean of the runs for the computation time in
+seconds for color coding  <tt class="docutils literal">time</tt>. Also
+summarized are the solution scores for each as <tt class="docutils literal">score</tt>.
+Note that for all color coding runs, the score was optimal.</p>
+<table border="1" class="docutils">
+<caption>Color coding summary</caption>
+<colgroup>
+<col width="11%" />
+<col width="17%" />
+<col width="33%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">m</th>
+<th class="head">n</th>
+<th class="head">time</th>
+<th class="head">score</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>5</td>
+<td>50</td>
+<td>0.027</td>
+<td>9</td>
+</tr>
+<tr><td>5</td>
+<td>100</td>
+<td>0.094</td>
+<td>9</td>
+</tr>
+<tr><td>8</td>
+<td>50</td>
+<td>0.297</td>
+<td>15</td>
+</tr>
+<tr><td>8</td>
+<td>100</td>
+<td>0.731</td>
+<td>15</td>
+</tr>
+<tr><td>10</td>
+<td>50</td>
+<td>2.219</td>
+<td>19</td>
+</tr>
+<tr><td>10</td>
+<td>100</td>
+<td>4.845</td>
+<td>19</td>
+</tr>
+<tr><td>12</td>
+<td>100</td>
+<td>36.834</td>
+<td>23</td>
+</tr>
+<tr><td>13</td>
+<td>100</td>
+<td>215</td>
+<td>25</td>
+</tr>
+<tr><td>14</td>
+<td>100</td>
+<td>1028</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>In order to test the possible speedup we could achieve if we had
+a perfect bound, we supplied the algorithm for the $m=14$ $n=100$
+computation with a bound of $27 - 9.9*10^{-11}$.
+The computation time was 978 seconds, yielding a gain ratio of 1.051.</p>
+<p>To assess the efficency for non-complete
+graphs, we used the method of Holme et al. <a class="citation-reference" href="#holme" id="id19">[Holme]</a> as it is implemented in the
+Python package &quot;networkx&quot;, to create a randomg graph. This graph had 5000
+vertices and  14991 edges, and had similar vertex degree (min 3, average 5.99, and max 227) and
+clustering coefficient (0.055) to the yeast protein interaction network
+<a class="citation-reference" href="#xenarios" id="id20">[Xenarios]</a> (4389 vertices, 14318 edges, average degree 6.5, maximum
+degree 237, clustering coefficient 0.067) used by Huffner
+<a class="citation-reference" href="#huffner" id="id21">[Huffner]</a>, Dost et al. <a class="citation-reference" href="#dost" id="id22">[Dost]</a>, and Scott et al. <a class="citation-reference" href="#scott" id="id23">[Scott]</a> in their
+experiments. A logarithmic plot of running times for $\epsilon =
+0.01$ without precomputing for tree orders 5-12 can be seen here</p>
+<pre class="literal-block">
+    +---------+---------------+--------------+--------------+--+
+  8 +                                                       *  +
+l   |                                                *         |
+o   |                                                          |
+g 6 +                                        *                 +
+    |                                                          |
+s   |                                *                         |
+e 4 +                         *                                +
+c   |                                                          |
+o   |                 *                                        |
+n 2 +                                                          +
+d   |         *                                                |
+s   |  *                                                       |
+    +---------+---------------+--------------+--------------+--+
+              6               8             10             12
+                             tree order
+</pre>
+<p>The constant slope in this plot indicates that our analysis of the
+algorithms running time complexity is correct.</p>
+<p>A log plot of the times reported for &quot;standard color coding&quot;
+in Dost et al. minus the times plotted above for given tree
+orders can be seen here</p>
+<pre class="literal-block">
+     +--+-------+--------+--------+--------+-------+--------+--+
+  10 +                                                      *  +
+     |                                                         |
+l  8 +                                             *           +
+o    |                                     *                   |
+g  6 +                                                         +
+     |                                                         |
+d  4 +                                                         +
+i    |                            *                            |
+f  2 +                   *                                     +
+f    |          *                                              |
+   0 +                                                         +
+     |  *                                                      |
+     +--+-------+--------+--------+--------+-------+--------+--+
+        6       7        8        9       10      11       12
+                             tree order
+</pre>
+<p>The running times reported by Dost et al. grow exponentially
+faster than the running times in our experiments. However, note that
+care should be taken when drawing conclusions from this plot
+as the graphs were different, and the algorithm of Dost et al. also
+searches for inexact matches.</p>
+</div>
+<div class="section" id="overall-algorithm-performance">
+<h3>Overall Algorithm Performance</h3>
+<p>In order to investigate the performance of the algorithm overall, we
+created 30 $(G_1, G_2)$ instances for each possible value of
+$(m,n) \in \{10,20\} \times \{30, 40\}$ where $m$ and $n$ as
+before are the orders of $G_1$ and $G_2$, respectively.</p>
+<p>In order to control the computational effort expended, we chose to
+compute 150 random order 5 stars for each vertex in $G_1$ to be matched in
+$G_2$ with an $\epsilon = 0.2$. This choice was done in an ad-hoc
+fashion.</p>
+<p>For each of the $(m,n)$ tuples, the mean values of running time in
+seconds <tt class="docutils literal">time</tt>, correct vertex correspondences in an assignment
+<tt class="docutils literal">c</tt>, the computed score <tt class="docutils literal">score</tt>, as well as <tt class="docutils literal">rank</tt> and
+<tt class="docutils literal">rank/c</tt> are presented in the table below. The value <tt class="docutils literal">rank</tt> is the
+smallest index in a sequence of $G_1$ vertices sorted on decreasing
+correspondence strength value for which the correspondence is
+incorrect. This value is never larger than the number of correct
+correspondences. The last column <tt class="docutils literal">rank/c</tt> corresponds to the means
+of the rank/correct ratios.</p>
+<p>For the computation we used an OCaml implementation of the algorithm
+to produce the bipartite graph $B$ from which the final assignment is
+computed.</p>
+<table border="1" class="docutils">
+<caption>Yagma performance summary</caption>
+<colgroup>
+<col width="4%" />
+<col width="4%" />
+<col width="17%" />
+<col width="19%" />
+<col width="19%" />
+<col width="19%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">m</th>
+<th class="head">n</th>
+<th class="head">time</th>
+<th class="head">rank</th>
+<th class="head">c</th>
+<th class="head">score</th>
+<th class="head">rank/c</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>10</td>
+<td>30</td>
+<td>12.53270</td>
+<td>9.592593</td>
+<td>9.925926</td>
+<td>54.79259</td>
+<td>0.9629630</td>
+</tr>
+<tr><td>10</td>
+<td>40</td>
+<td>17.70185</td>
+<td>4.555556</td>
+<td>8.222222</td>
+<td>50.75926</td>
+<td>0.5186667</td>
+</tr>
+<tr><td>20</td>
+<td>30</td>
+<td>25.50262</td>
+<td>20.000000</td>
+<td>20.000000</td>
+<td>210.00000</td>
+<td>1.0000000</td>
+</tr>
+<tr><td>20</td>
+<td>40</td>
+<td>35.68068</td>
+<td>19.037037</td>
+<td>19.851852</td>
+<td>208.92037</td>
+<td>0.9571111</td>
+</tr>
+</tbody>
+</table>
+<p>In order to compare these results with another independently
+developed algorithm, we applied the well known SMAC graph matching
+algorithm developed by Cour et al. <a class="citation-reference" href="#cour" id="id24">[Cour]</a> to the same test
+instances with the following results.</p>
+<table border="1" class="docutils">
+<caption>SMAC performance summary</caption>
+<colgroup>
+<col width="9%" />
+<col width="9%" />
+<col width="43%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">m</th>
+<th class="head">n</th>
+<th class="head">c</th>
+<th class="head">score</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>10</td>
+<td>30</td>
+<td>2.7666667</td>
+<td>46.63000</td>
+</tr>
+<tr><td>10</td>
+<td>40</td>
+<td>0.5666667</td>
+<td>44.87167</td>
+</tr>
+<tr><td>20</td>
+<td>30</td>
+<td>18.8666667</td>
+<td>206.80667</td>
+</tr>
+<tr><td>20</td>
+<td>40</td>
+<td>2.3333333</td>
+<td>164.11833</td>
+</tr>
+</tbody>
+</table>
+<p>With respect to match quality, our
+algorithm consistently outperformed the algorithm of Coer et al.,
+particularly in the more difficult $n = 40$ instances.</p>
+<p>The implementation of SMAC we used was the one posted on the web by
+the authors. It is a matlab wrapper of C/C++ code. Computation times
+for SMAC were in the tenths of seconds for all cases, and hence are
+one to two orders of magnitude smaller than for our
+algorithm. However, to produce results comparable
+in quality to those produced by the SMAC algorithm, we used on average
+1.25 seconds in 10 $m=20$ and $n=40$ cases to produce an average
+$c=3.1$ by only requiring $k = 4$ and a coverage of 1. In this case,
+SMAC used on average 0.66 seconds, which means that in this instance
+SMAC is less than 2 times as fast with results a third worse. While
+our algorithm is slower, it allows a rudimentary balancing of match
+performance and computational effort. The progression of solution
+score as function of $coverage$ in a $m = 20$, $n = 40$ test instance
+using random stars of order 5 can be seen here</p>
+<pre class="literal-block">
+    +-+----------+----------+----------+---------+----------+--+
+    |                   *************************************  |
+200 +                  *                                       +
+    |              *****                                       |
+    |            ***                                           |
+    |    *********                                             |
+150 +    *                                                     +
+    |                                                          |
+    |   *                                                      |
+    |                                                          |
+    |                                                          |
+100 +  *                                                       +
+    |                                                          |
+    |  *                                                       |
+    +-+----------+----------+----------+---------+----------+--+
+      0          1          2          3         4          5
+</pre>
+<p>For this particular run, using each vertex in $G_1$ as the root of a random star
+twice would have been sufficient.</p>
+<div class="section" id="ranking-performance">
+<h4>Ranking performance</h4>
+<p>The overall average rank/correct ratio is 0.85. This means that if we
+sort the individual correspondences decreasingly according to their
+strength, a prefix of length $0.85 * c$ consists of correct
+correspondences. As such, this ratio serves as an indicator of the
+usefulness of the strength measure computed for each individual
+correspondence in an assignment. Note that the normalization achieved
+by dividing by $c$ makes this independent from the quality of the
+assignment.</p>
+</div>
+</div>
+</div>
+<div class="section" id="discussion-and-conclusion">
+<h2>Discussion and Conclusion</h2>
+<p><strong>Summary of results</strong>
+We presented a graph matching algorithm in terms of a fold over
+trees that can be directly translated into efficient code, reflecting
+a view of pattern matching as a catamorphism. Our overall approach of
+composing sub-matchings obtained by matching randomly sampled trees
+worked well in our test cases in which it significantly outperformed a
+well known graph matching algorithm in terms of matching quality.</p>
+<p><strong>Limiting scope of experiments</strong>
+Our experiments were restricted to limited size, strictly
+quasi-deceptive subgraph-isomorphism problem instances. The
+reasons for this restriction is that this allows the determination of the
+optimal match score, and hence the ability to determine the optimality
+of computed solutions. It is worth noting that all non-weighted
+subgraph monomorphism problems are in this class.
+Within this restriction, we chose a problem class consisting of
+instances composed of complete graphs with rounded edge weights randomly
+sampled from the unit interval. The only structural information is
+contained in the edge weights as the graphs were undirected and
+complete and had no vertex annotations. Furthermore, we rounded the
+edges to be of maximally 21 different possible values, ensuring a high
+degree of ambiguity in sub-matchings. In summary, while the experimental
+problem instances were of a limited class, we deliberately chose hard
+instances within this class.</p>
+<p><strong>Simplicity of the color coding algorithm implementation</strong>
+As noted previously, our definition of the color coding algorithm is
+essentially expressed in terms of a fold over the pre-order traversal
+list of tree vertices. Recursive patterns such as folds are routinely
+provided by standard libraries of languages that support functional
+programming idioms. An eloquent case for functional programming
+is given in the 1989 seminal paper &quot;Why functional programming
+matters&quot; by John Hughes <a class="citation-reference" href="#hughes" id="id25">[Hughes]</a>. For example, once we have a list
+fold, the sum of a list of integers can be presented as a fold of
+addition over the list. The properties of sum can then be inferred
+from the properties of the fold and the properties of the binary
+addtion operation. Recursive patterns
+such as fold are not only useful for programmers, but have been
+studied from a theoretical perspective and the results provide a
+framework for reasoning about and proving properties of programs and
+algorithms expressed in terms of these patterns. Meijer <a class="citation-reference" href="#meijer" id="id26">[Meijer]</a>
+discusses catamorphisms (fold), anamorphisms (unfold), hylomorphisms
+(fold-unfold), and paramorphisms over general recursive data
+structures from a theoretical standpoint. One of the results of this
+work relevant for us is the extension of fold properties to
+general (finite and infinite) recursive data structures. As we have seen
+the particularities of color coding are essentially contained in a
+binary operator <tt class="docutils literal">g</tt>. Whether we are matching a path or a tree is now
+abstracted away in the recursive data structure the fold is over,
+essentially hiding the extension of path matching to tree-matching in
+the fold recursive pattern. As presented above, the parts of the code
+containing the essentials of the algorithm is only a few lines long,
+and follow the textual descriptive explanation closely. As an example,
+an efficient Python implementation of the algorithm for networkx module graph
+representations, including sub-tree pruning, is about 80 lines long.
+Our OCaml implementation of the algorithm is competitive compared to
+reported running times in the literature.</p>
+<p><strong>A measure of solution quality</strong>
+Considering the approximation hardness results presented by
+Mielikainen et al. <a class="citation-reference" href="#mielikainen" id="id27">[Mielikainen]</a>, offering guaranteed good overall
+solutions might be impossible. However, our experiments suggest that
+the measure $strength$ computed from the bipartite graph
+constructed from the collection of sub-tree assignments can be used in
+a heuristic manner to assess the quality of individual vertex
+correspondences. This can be applied to identify origin sub-graphs
+for which it is easier to compute good solutions. How the identified
+concept of deceptive sub-graphs affects this and applicability in
+general is a topic for future research.</p>
+<p><strong>Inexact matching by local exact matching</strong>
+While the matching of sub-trees is performed in an (syntactically but
+not semantically) exact manner, the overall composition is
+inexact. Dost et al. <a class="citation-reference" href="#dost" id="id28">[Dost]</a> presented a syntactically inexact version
+of color coding where vertices were allowed to be missing in both
+origin and target (the former phrased as inserts in the target). How
+such extensions can be incorporated into the catamorphic presentation
+of color coding, is another topic for future research.</p>
+</div>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments</h2>
+<p>We thank Vineet Bafna for pointing out the color coding approach,
+and Jihoon Kim for proposing the normalization of the
+ranks. This work was funded in part by NIH grants 5 R01 LM007273-07
+and U54 HL108460.</p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<table class="docutils citation" frame="void" id="alon" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Alon]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> Alon N., Yuster R.,  Zwick, U.
+Color-coding.
+Journal of the ACM (JACM), ACM, 1995, 42, 844-856</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="boros" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[Boros]</a></td><td>Boros E., Hammer P.
+Pseudo-boolean optimization.
+Discrete Applied Mathematics, Elsevier, 2002, 123, 155-225</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="conte" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[Conte]</a></td><td>D. Conte et al. Thirty Years of Graph Matching
+in Pattern Recognition. International Journal of Pattern Recognition
+and Artificial Intelligence Vol. 18, No. 3 (2004) 265--298</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="cordella" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Cordella]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id6">3</a>)</em> Luigi P. Cordella, Pasquale Foggia, Carlo Sansone, Mario Vento.
+A (Sub)Graph Isomorphism Algorithm for Matching Large Graphs.
+IEEE Transactions on Pattern Analysis and Machine Intelligence
+26(10):1367-1372, 2004</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="cour" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id24">[Cour]</a></td><td>Cour, T., Srinivasan P., Shi J.
+Balanced graph matching.
+Advances in Neural Information Processing Systems 19: Proceedings
+of the 2006 Conference, 2007, 19</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="dost" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Dost]</td><td><em>(<a class="fn-backref" href="#id14">1</a>, <a class="fn-backref" href="#id22">2</a>, <a class="fn-backref" href="#id28">3</a>)</em> Dost B., Shlomi T., Gupta N., Ruppin E., Bafna V., Sharan R.
+QNet: A tool for querying protein interaction networks.
+Research in Computational Molecular Biology, 2007, 1-15</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="downey" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[Downey]</a></td><td>Downey R.,Fellows M.
+Fixed-parameter intractability.
+Structure in Complexity Theory Conference, 1992., Proceedings of the Seventh Annual, 1991, 36-49</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="holme" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id19">[Holme]</a></td><td>P. Holme and B. J. Kim.
+Growing scale-free networks with tunable clustering, Phys. Rev. E,
+65, 026107, 2002.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="huffner" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Huffner]</td><td><em>(<a class="fn-backref" href="#id15">1</a>, <a class="fn-backref" href="#id17">2</a>, <a class="fn-backref" href="#id21">3</a>)</em> Huffner F., Wernicke S., Zichner T.
+Algorithm engineering for color-coding with applications to
+signaling pathway detection.
+Algorithmica, Springer, 2008, 52, 114-132</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hughes" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id25">[Hughes]</a></td><td>Hughes J.
+Why Functional Programming Matters. Computer Journal, 1989, 32,
+98-107</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hutton" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id16">[Hutton]</a></td><td>Hutton G.
+A tutorial on the universality and expressiveness of fold.
+Journal of Functional Programming 9 (4): 355-372, July 1999.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="knuth" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id18">[Knuth]</a></td><td>Knuth DE, &quot;Generating All Combinations and Partitions&quot;,
+The Art of Computer Programming Addison-Wesley, 2005. ISBN 0-201-85394-9.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="meijer" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id26">[Meijer]</a></td><td>Meijer E, Fokkinga M, Paterson R.
+Functional programming with bananas, lenses, envelopes and barbed
+wire. Proceedings of the 5th ACM conference on Functional
+Programming Languages and Computer Architecture.
+Cambridge, MA, USA, August 26-30, 1991.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="mielikainen" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Mielikainen]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id9">2</a>, <a class="fn-backref" href="#id27">3</a>)</em> Mielikainen T., Ravantti J.,  Ukkonen E.
+The Computational Complexity of Orientation Search Problems
+in Cryo-Electron Microscopy.
+CoRR, 2004, cs.DS/0406043</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="mu" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Mu]</td><td>Mu S, Bird R.
+Rebuilding a tree from its traversals: a case study of program
+inversion.
+Programming languages and systems: first Asian Symposium, APLAS 2003.
+Beijing, China, November 27-29, 2003: proceedings, 2003.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="scott" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id23">[Scott]</a></td><td>Scott J, Ideker T, Karp RM, Sharan, R.
+Efficient algorithms for detecting signaling pathways in protein
+interaction networks. J Comput Biol, Computer Science Division,
+University of California, Berkeley, 94720, USA., 2006, 13, 133-144</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="torresani" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Torresani]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id10">2</a>)</em> Torresani L., Kolmogorov V., Rother C.
+Feature correspondence via graph matching: Models and global
+optimization.
+Computer Vision--ECCV 2008, Springer, 2008, 596-609</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="xenarios" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id20">[Xenarios]</a></td><td>Xenarios I, Salwinski L, Duan XJ, Higney P, Kim SM, Eisenberg D.
+DIP, the Database of Interacting Proteins: a research tool for
+studying cellular networks of protein interactions. Nucleic Acids
+Res, 2002, 30, 303-305.</td></tr>
+</tbody>
+</table>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'],  ],
+      displayMath: [ ['$$','$$'],  ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+Generated on: 2012-04-05 04:42 UTC.
+
+</div>
+</body>
+</html>

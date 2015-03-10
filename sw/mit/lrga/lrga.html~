@@ -1,0 +1,180 @@
+<!-- -*-HTML-*-
+--------------------------------------------------------------------------------
+-
+- File:         lrga.html
+- RCS:          $Header: $
+- Description:  HTML file to accompany ooga.r, lrvarsel.r and cindex.r
+- Author:       Staal Vinterbo
+- Created:      Fri Nov 21 15:33:25 2003
+- Modified:     Fri Nov 21 16:01:30 2003 (Staal Vinterbo) staal@MGV
+- Language:     HTML
+- Package:      N/A
+- Status:       Experimental (Do Not Distribute)
+-
+- (c) Copyright 2003, Staal Vinterbo, all rights reserved.
+-
+--------------------------------------------------------------------------------
+-->
+
+<HEAD>
+<TITLE>A Genetic Algorithm for Empirical Variable Selection</TITLE>
+<link rel="stylesheet" href="http://dsg.harvard.edu/css/dsg.css" type="text/css">
+</HEAD>
+<body>
+
+ <H1>A Genetic Algorithm for Empirical Variable Selection</H1>
+  (Text taken in part from S. Vinterbo and L. Ohno-Machado. A genetic algorithm to
+  select variables in logistic regression: example in the domain of
+  myocardial infarction. Journal of the American Medical Informatics
+  Association, 6(Suppl.):984-988, 1999.
+[Available <a href="http://www.mit.edu/~sav/dist/pubs/self/Proceedings/amia/amia99.pdf">here</a>])
+
+  <H2>Introduction</H2>
+  Predictive models can be compared
+in terms of performance, robustness, explanatory
+power, and cost. Performance is often measured
+by discriminatory ability (e.g., area under the Receiver Operating
+  Characteristic, or ROC, curve) 
+and calibration (e.g., plots of expected versus observed
+  results). Robustness can be interpreted as 
+the ability to generalize the model to other data
+and to maintain good performance in presence of
+uncertainty and/or missing data items.
+
+Explanatory power is the ability to explain certain dependencies in
+the data and the model results. Cost 
+can be measured as an aggregate of associated
+costs of obtaining the information.
+A factor that contributes to performance, robustness, explanatory
+power and cost is parsimony of 
+the model. A smaller model (in terms of the number of variables) is
+likely to (i) avoid over-fitting 
+problems, thus performing and generalizing better, (ii) be less likely
+to fail due to missing data, 
+(iii) be easier to explain, and (iv) cost less, both in
+terms of data collection and computational effort.
+
+<h2>Logistic Regression</h2>
+
+Traditionally, for logistic regression models, the variable selection
+issue has been addressed by stepwise forward,
+backward, and composite variable selection methods. The SAS
+statistical software system calls these selection methods
+"forward", "backward" and "stepwise", respectively. 
+
+Although being well understood and relatively easy
+to compute, these methods consider the addition
+or removal of one variable at the time, conditional
+on the variables already selected. This sequential
+approach restricts the examined number of models
+severely. Another approach is to examine all possible models. Given u
+variables to choose from, 
+the number of possible models is of the order of 2 to the power of u,
+which renders this exhaustive approach infeasible with other than
+small numbers of variables.
+
+<h2>A Genetic Algorithm Approach</h2>
+
+A genetic algorithm can be used as a heuristic for function
+optimization where the extrema of the function (i.e., 
+minima or maxima) cannot be established analytically. A population of
+potential solutions is refined iteratively by employing a strategy inspired
+by Darwinistic evolution or natural selection. Genetic algorithms
+promote "survival of the fittest". 
+
+Given an initial population, often created randomly, the principal
+steps of a genetic algorithm are:
+<ol>
+<li>Select parents from the current population to
+undergo genetic operations to form offspring.
+This is done stochastically with preference assigned to individuals
+that yield higher function values (i.e., the "fittest" individuals).
+<li>Apply genetic operations such as crossover,
+mutation and inversion to the selected parents to form offspring. The
+operators are designed such that properties of the parents are
+reproduced in the offspring.
+<li>Recombine the offspring and current population to form a new
+population. 
+</ol>
+These steps are performed until some predefined
+stopping criterion is met. The selection method
+from a population of potential solutions, with preference to "fittest"
+individuals, has given these types of algorithms the name "genetic",
+or sometimes "evolutionary", algorithms. The individuals 
+in a population are often called "chromosomes",
+built out of "genes" that represent the properties
+of the individual, and the function to optimize is
+referred to as a "fitness" function. Each iteration
+is called a "generation". A pseudo-code skeleton for
+a genetic algorithm applying crossover, mutation
+and inversion as genetic operators, is shown here:
+<pre>
+   P <- initializePopulation()
+   evaluate(P)
+   while(not stop(P)) do
+     Parents[1..3] <- selectParents(P)
+     Offspring[1] <- Crossover(Parents[1])
+     Offspring[2] <- Mutation(Parents[2])
+     Offspring[3] <- Inversion(Parents[3])
+     P <- recombine(P, Offspring[1..3], Parents[1..3])
+     evaluate(P)
+   done
+</pre>
+
+A report of experiments with such an algorithm can be found in
+<quote>
+  S. Vinterbo and L. Ohno-Machado. A genetic algorithm to
+  select variables in logistic regression: example in the domain of
+  myocardial infarction. Journal of the American Medical Informatics
+  Association, 6(Suppl.):984-988, 1999.
+  [Available <a href="http://www.mit.edu/~sav/dist/pubs/self/Proceedings/amia/amia99.pdf">here</a>])
+</quote>
+
+<h2>Implementation in R</h2>
+
+Here follows a description of an implementation of the above scheme in
+the R language. R is an environment for exploratory data analysis,
+very similar to S and S-plus. It is Free Software and is available
+with documentation at the
+<a href="http://www.r-project.org">R-Project home page</a>.
+
+<h3>For which platform</h3>
+Any platform capable of running the R system. Includes most unix
+flavours, linux and windows.
+
+<h3>Distribution: Under what conditions</h3>
+The programs are free software distributed under the 
+<a href="http://www.gnu.org/licenses/gpl.txt">GNU General Public
+Licence version 2</a>. <br>
+Important: they come with ABSOLUTELY NO WARRANTY; for details read the
+<a href="http://www.gnu.org/licenses/gpl.txt">licence</a>.<br>
+The ooga.r, lrgasel.r and cindex.r programs are free software, and you are
+welcome to redistribute them under certain conditions; read the <a
+href="http://www.gnu.org/licenses/gpl.txt">licence</a> for details.
+
+<h3>Code</h3>
+<h4>General GA Framework</h4>
+Using the object orientation facilities in R a general framework for a
+GA can be found <a
+href="ooga.r">here</a>. 
+
+<h4>Specialization to Variable Selection for LR</h4>
+A specialization of the GA framework to LR can be found <a
+href="lrgasel.r">here</a>.
+The program is dependent on <a
+href="cindex.r">cindex.r</a>,
+which among others contains an implementation of Hanley and
+McNeil's algorithm for computing the cindex. 
+(see 
+<quote>
+J. A. Hanley and B. J. McNeil. The meaning
+and use of the area under a receiver operat ing characteristic (ROC)
+curve. Radiology, 143:29{36, 1982.
+</quote>)
+<p>
+Enjoy
+
+
+</body>
+</html>
+

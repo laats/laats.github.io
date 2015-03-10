@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>finfer.r -- small fuzzy inference engine in R</title>
+</head>
+
+<body>
+<h1>finfer.r</h1>
+<a href="finfer.r"><em>finfer.r</em></a> is a 
+<a href="http://www.r-project.org/">R</a> file containing a fuzzy
+rule inference engine. The implementation consists of a handful
+functions making up around 20 lines of code. The remaining 10 lines or
+so are helper function for defining fuzzy sets.
+
+<!--<img src="ml-ractiv.png" alt="Rule activations" align=right><br>-->
+<img src="anime.gif" alt="Animation of landing" align=right>
+
+<h3>Wow! That must be some expensive software!</h3>
+Actually, no. It is distributed as free (not as in beer) software
+under the
+<a href="http://www.gnu.org/licenses/gpl.txt">GNU General Public Licence</a>.
+Read the licence before using it.
+
+<h3>Anything else I should know?</h3>
+
+Yes, there are two accompanying files:
+<ul>
+  <li> <a href="landerdemo.r">landerdemo.r</a>, a usage demonstration that
+    contains definitions that in conjunction with the contents of
+    finfer.r make up a simple fuzzy controller that is used in an animated
+    simulation landing a planetary lander on planet X. It also uses
+    finfer-logging.r to analyze the rule base
+    (<a href="ml-ractiv.png">here</a> for image).
+  <li> <a href="finfer-logging.r">finfer-logging.r</a> contains code
+    to enable logging of rule activations.
+</ul>
+
+The quickest way to try it out is to download all three files, start R,
+and then do
+<pre>
+> source('landerdemo.r')
+> landerdemo()
+</pre>
+
+<h3>Compatibility</h3>
+
+The code has been tested under R version 2.6.2 under linux and
+windows XP. Mac users might have to redefine the test for animation in
+landerdemo.r.
+
+<h3>Great! Let me have it!</h3>
+Ok, grab the files from the links above, or go get gzipped tar
+archive <a href="finfer.tgz">HERE</a>.
+
+
+
+<hr>
+<address>Staal A. Vinterbo</address>
+<!-- hhmts start -->
+Last modified: Wed Dec 17 17:51:46 EST 2008
+<!-- hhmts end -->
+</body> </html>

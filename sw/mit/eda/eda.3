@@ -1,0 +1,197 @@
+.\" -*- nroff -*-
+.\" (c) Copyright 2005, Staal Vinterbo, all rights reserved.
+.\"
+.\" This file is part of EDA.
+.\"
+.\" EDA is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" EDA is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with EDA; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH eda 3 EDA
+.SH NAME
+eda \- a C++  estimation of distribution library for orderings
+.SH SYNOPSIS
+.B #include <eda.h>
+.SH AVAILABILITY
+The eda C++ library, of which this file is a part, should be
+considered as being alpha testing software. 
+
+EDA is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License,
+.HTML <a href=http://www.gnu.org/copyleft/gpl.html> (here)</a>,
+or (at your option) any later version.
+
+
+EDA is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with EDA; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+.HTML Get a gzipped tar archive <a href=eda.tgz>here</a>.
+.SH DESCRIPTION
+.B eda 
+is an 
+estimation of distributions algorithm library for orderings on the
+numbers 0,1,...,N-1 for some positive N. Code that uses this library
+would look something like the following.
+
+#include <eda.h>
+.br
+#include <iostream>
+.br
+
+#include <util.h>
+.br
+using util::operator<<;
+.br
+using util::operator>>;
+.br
+
+class MyObjective : public Objective 
+.br
+{
+.br
+.RS 2
+vector<int> target;
+.br
+.RE
+public:
+.br
+.RS 2
+MyObjective(vector<int> &t) : Objective(maximize), target(t) {}
+.br
+virtual ~MyObjective(){}
+.br
+score_t raw(vector<int> &ind) { 
+.br
+.RS 2
+int sum = 0;
+.br
+for(vector<int>::iterator i = ind.begin() + 1; i != ind.end(); i++)
+.br
+.RS 2
+sum += static_cast<int>(target[*(i - 1)] <= target[*i]);
+.br
+.RE 
+return static_cast<score_t>(sum);
+.br
+.RE 
+}
+.RE 
+.br
+};
+
+
+int main()
+.br
+{
+.RS 2
+.br
+vector<int> t;
+.br
+std::cin >> t;
+.br
+MyObjective o(t);
+.br
+vector< pair<int,int> > zers; // disallowed transitions, here none
+.br
+Distribution d(t.size(), zers);
+.br
+EDA eda(d, o);
+.br
+eda.run();
+.br
+std::cout << eda.sol();
+.br
+.RE
+}
+
+
+
+The above code comes from the file example.cc 
+.HTML <a href=example.cc> (here)</a>
+supplied with this
+library, and can be compiled with (after installing the library and
+header files)
+.br
+$ g++ -o example example.cc -leda -lgmpxx -lgmp
+.br
+and run as
+.br
+$ echo 3 2 1 4 100 5 | ./example
+.br
+or can be compiled and run by
+.br
+$ make test
+
+
+.SH FILES
+The library consists of a number of files.
+.SS Header files
+.TP 2
+.I eda.h 
+.HTML <a href=eda.h> Here </a>
+is the main header file to be included by code that is to be
+linked with this library.
+.TP
+.I farith.h
+.HTML <a href=farith.h> Here </a> is the file that is
+used by the library for floating point arithmetic. Uses the gmp
+library to avoid numerical instabilities.
+.TP 
+.I objective.h
+.HTML <a href=objective.h> Here </a> 
+is the entry point to the library, defines the objective function.
+.TP 
+.I parameter.h 
+.HTML <a href=parameter.h> Here </a> 
+is a sub-library that allows object-oriented access to
+command line parameters. Might be taken out of this library in the future.
+.TP
+.I compose2.h
+.HTML <a href=compose2.h> Here </a> is the file that is
+used by the command-line parameter part of the library
+.TP 
+.I util.h 
+.HTML <a href=util.h> Here </a> 
+are utilities used by the library (templates)
+
+.SS CC files
+.TP 2
+.I eda.cc 
+.TP 
+.I farith.cc
+.TP 
+.I parameter.cc
+.SH SEE ALSO
+tsp(1)
+.SH AUTHOR
+Staal Vinterbo <staal@dsg.harvard.edu>
+.SH COPYRIGHT
+Copyright (C) 2005 Staal Vinterbo
+.SH DEPENDENCIES
+This library is dependent on the GNU gmp library and has only been
+tested  with g++ 3.3.{1,3}.
+The linking flags should include
+-lgmpxx -lgmp
+.SH BUGS
+Must be plenty. Please report them to the
+author. Thank you.
+
+
+

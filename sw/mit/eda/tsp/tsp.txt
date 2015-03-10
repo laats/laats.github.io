@@ -1,0 +1,172 @@
+TSP(1)                                                                  TSP(1)
+
+
+
+NAME
+       tsp - compute a schedule for the traveling salesman
+
+SYNOPSIS
+       tsp [ options ]
+
+AVAILABILITY
+       The  tsp  program should be considered as being alpha testing software.
+       It is supplied as is, and NO WARRANTY whatsoever is given.
+
+       TSP is free software; you can redistribute it and/or  modify  it  under
+       the  terms  of  the GNU General Public License as published by the Free
+       Software Foundation; either version 2  of  the  License,  or  (at  your
+       option) any later version.
+
+
+       TSP  is distributed in the hope that it will be useful, but WITHOUT ANY
+       WARRANTY; without even the implied warranty of MERCHANTABILITY or  FIT-
+       NESS  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+       more details.
+
+       You should have received a copy of the GNU General Public License along
+       with  TSP; if not, write to the Free Software Foundation, Inc., 59 Tem-
+       ple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+
+DESCRIPTION
+       tsp is a utility that searches for tours using a  configurable  estima-
+       tion of distributions algorithm. The input is a square matrix represen-
+       tation of the distances between the points that  the  salesman  has  to
+       visit  exactly  once.  Any  single  precision floating point values are
+       acceptable. The value of 1000000 is interpreted as a non-connection.
+
+       The output is a permutation of the natural numbers 0 through number  of
+       cities - 1, representing the tour.
+
+OPTIONS
+       -v, --verbose
+              Spew information...
+
+       -h, --help
+              print rudimentary help on usage.
+
+       -p, --psize <value>
+              Default value: 100.  Population sise to use
+
+       --dv <value>
+              Default value: 10000.  Sets dv used in probability scaling.
+
+       --df <value>
+              Default value: 100.  Sets df used in probability scaling.
+
+       -n, --niter <value>
+              Default value: 100.  Sets number of generations with no improve-
+              ment to wait before quitting.
+
+       -e, --nest <value>
+              Default value: 30.  Sets number of best individuals to use  each
+              generation to update the distribution estimate.
+
+       -f, --logfile <value>
+              Default value: cerr.  Where to print log.
+
+       -l, --log
+              Turn on logging of generational stats.
+
+       --loginterval <value>
+              Default  value:  20.   Sets  the  number  of generations to wait
+              between each log output.
+
+       -a, --alpha <value>
+              Default value: 0.15.  Sets alpha, the distribution update speed.
+              After  each  generation a subsample is used to estimate the dis-
+              tribution, initially this is uniform. Then, the distribution  is
+              updated  using  the previous distribution estimate and this cur-
+              rent estimate.  alpha governs the speed  of  this  according  to
+              next = (1-alpha)*old + alpha*current.
+
+       -i, --nelite <value>
+              Default  value: 3.  How many of the best to transfer to the next
+              population.
+
+       -s, --seed <value>
+              Default value: none.  Initialize random  number  generator  with
+              the given seed.
+
+       -m, --maxgen <value>
+              Default value: none.  Maximal number of generations to run.
+
+       --version
+              Default value: none.  Print version and exit.
+
+       -r, --report
+              Default  value:  none.   Also  report  number of generations and
+              score.
+
+INPUT FORMATS
+   distance matrix
+       The square n times n distance matrix must be input as n lines  of  text
+       containing  exactly  n  numbers, either single precision floating point
+       numbers, or integers that can fit into a single  point  floating  point
+       number.
+
+EXAMPLES
+       $ tsp < intputfile
+
+       $ cat inputfile | tsp -l --loginterval 10 --dv 1000 --alpha 0.6 -p 500
+
+       $ tsp -h
+
+       If the input file example.input contains:
+
+       0 6.231753 6.417581
+       1e+06 0 9.933639
+       5.936391 7.555658 0
+
+       Then we can expect output of
+
+       $ tsp -l -n 10 -v < example.input
+
+       to resemble something like:
+
+       Parameter verbose ('v') was set to 1
+       Parameter niter ('n') was set to 10
+       Parameter log ('l') was set to 1
+       EDA: psize 100 nelite: 3 niter: 10 nest: 30
+       Evaluating initial pop...
+       done.
+       eda.run()...
+       Starting evolution...
+       0 22.1018 250020 1.00001e+06 22.1018
+       20 22.1018 22.1018 22.1018 22.1018
+       done.
+       generations: 25 best: 22.1018
+       1 2 0
+
+       (Note  that from the output above, only the last line is on stdout. The
+       rest is on stderr).
+
+SEE ALSO
+       eda(3)
+
+AUTHOR
+       Staal Vinterbo <staal@dsg.harvard.edu>
+
+COPYRIGHT
+       Copyright (C) 2005 Staal Vinterbo
+
+DEPENDENCIES
+       This program is dependent on the eda and GNU  gmp  libraries,  and  has
+       only been tested  with g++ 3.3.{1,3}.
+
+FEATURES
+       The  program  requires  the  input  from  stdin.  Even though the value
+       1000000 (one million) is interpreted as a non-connection, there  is  no
+       guarantee  that  a  tour will only consist of cities between there is a
+       different cost.
+
+BUGS
+       Must be plenty. Please report them to the author. Thank you.
+
+
+
+
+
+
+                                      TSP                               TSP(1)

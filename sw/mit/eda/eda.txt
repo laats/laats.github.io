@@ -1,0 +1,138 @@
+eda(3)									eda(3)
+
+
+
+NAME
+       eda - a C++  estimation of distribution library for orderings
+
+SYNOPSIS
+       #include <eda.h>
+
+AVAILABILITY
+       The eda C++ library, of which this file is a part, should be considered
+       as being alpha testing software.
+
+       EDA is free software; you can redistribute it and/or  modify  it	under
+       the  terms  of  the GNU General Public License as published by the Free
+       Software Foundation; either version 2  of  the  License,	or  (at  your
+       option) any later version.
+
+
+       EDA  is distributed in the hope that it will be useful, but WITHOUT ANY
+       WARRANTY; without even the implied warranty of MERCHANTABILITY or  FIT-
+       NESS  FOR A PARTICULAR PURPOSE.	See the GNU General Public License for
+       more details.
+
+       You should have received a copy of the GNU General Public License along
+       with  EDA; if not, write to the Free Software Foundation, Inc., 59 Tem-
+       ple Place, Suite 330, Boston, MA	02111-1307  USA
+
+
+DESCRIPTION
+       eda is an estimation of distributions algorithm library	for  orderings
+       on  the	numbers	0,1,...,N-1  for some positive N. Code that uses this
+       library would look something like the following.
+
+       #include <eda.h>
+       #include <iostream>
+
+       #include <util.h>
+       using util::operator<<;
+       using util::operator>>;
+
+       class MyObjective : public Objective
+       {
+	 vector<int> target;
+       public:
+	 MyObjective(vector<int> &t) : Objective(maximize), target(t) {}
+	 virtual ~MyObjective(){}
+	 score_t raw(vector<int> &ind) {
+	   int sum = 0;
+	   for(vector<int>::iterator i = ind.begin() + 1; i != ind.end(); i++)
+	     sum += static_cast<int>(target[*(i - 1)] <= target[*i]);
+	   return static_cast<score_t>(sum);
+	 }
+       };
+
+
+       int main()
+       {
+	 vector<int> t;
+	 std::cin >> t;
+	 MyObjective o(t);
+	 vector< pair<int,int> > zers; // disallowed transitions, here none
+	 Distribution d(t.size(), zers);
+	 EDA eda(d, o);
+	 eda.run();
+	 std::cout << eda.sol();
+       }
+
+
+
+       The  above  code	comes	from  the  file	example.cc supplied with this
+       library, and can be compiled with (after	installing  the  library  and
+       header files)
+       $ g++ -o example example.cc -leda -lgmpxx -lgmp
+       and run as
+       $ echo 3 2 1 4 100 5 | ./example
+       or can be compiled and run by
+       $ make test
+
+
+
+FILES
+       The library consists of a number of files.
+
+   Header files
+       eda.h
+	 is  the  main header file to be included by code that is to be linked
+	 with this library.
+
+       farith.h
+	 used by the library for  floating  point  arithmetic.	Uses  the  gmp
+	 library to avoid numerical instabilities.
+
+       objective.h
+	 is the entry point to the library, defines the objective function.
+
+       parameter.h
+	 is  a	sub-library that allows object-oriented access to command line
+	 parameters. Might be taken out of this library in the future.
+
+       compose2.h
+	 used by the command-line parameter part of the library
+
+       util.h
+	 are utilities used by the library (templates)
+
+
+   CC files
+       eda.cc
+
+       farith.cc
+
+       parameter.cc
+
+SEE ALSO
+       tsp(1)
+
+AUTHOR
+       Staal Vinterbo <staal@dsg.harvard.edu>
+
+COPYRIGHT
+       Copyright (C) 2005 Staal Vinterbo
+
+DEPENDENCIES
+       This library is dependent on the GNU gmp	library  and  has  only  been
+       tested	with  g++ 3.3.{1,3}.  The linking flags should include -lgmpxx
+       -lgmp
+
+BUGS
+       Must be plenty. Please report them to the author. Thank you.
+
+
+
+
+
+
+				      EDA				eda(3)
