@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+<link rel="stylesheet" type="text/css" href="ptype.css" />
+<meta charset="utf-8">
+<title>Noise Tuning Tool</title>
+<script type="text/javascript" src="include/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="include/jquery-ui-1.8.9.min.js"></script>
+<script type="text/javascript" src="include/jquery.flot.min.js"></script>
+<script type="text/javascript" src="ptype.p.js"></script>
+</head>
+ <body>
+
+<h1>Noise Tuning Tool</h1>
+This tool is designed to help choose user utility function U(r) parameters for the generation of
+release probability mass P(r) that affords &epsilon;-differential privacy.
+<div class="wrapper">
+<div class="left_box">
+  <h2>Utility Function</h2>
+  The noise utility at point r between r<sub>min</sub> and r<sub>max</sub> given real count c is given by
+  the function U defined as:
+  <p>
+  <img src="U.png" alt="U(r,c) = b|r - c|^a" align="middle">
+  </p>
+</div>
+<div class="right_box">
+  <h2>Parameters</h2>
+  Double-click values to edit or select a preset, then click "Recompute".
+  <table class="sample" id="ptable" border=0 bgcolor=lightgray width=300 cellpadding=2>
+    <tr>
+      <th>c</th>  
+      <th>&epsilon;</th>
+      <th>&alpha;<sup>+</sup></th>
+      <th>&beta;<sup>+</sup></th>
+      <th>&alpha;<sup>-</sup></th>
+      <th>&beta;<sup>-</sup></th>
+      <th>r<sub>min</sub></th>
+      <th>r<sub>max</sub></th>
+    </tr>
+    <tr>
+      <td id="real" onDblClick="javascript:changeContent(this);"></td>  
+      <td id="eps" onDblClick="javascript:changeContent(this);"></td>
+      <td id="ap" onDblClick="javascript:changeContent(this);"></td>
+      <td id="bp" onDblClick="javascript:changeContent(this);"></td>
+      <td id="an" onDblClick="javascript:changeContent(this);"></td>
+      <td id="bn" onDblClick="javascript:changeContent(this);"></td>
+      <td id="minr" onDblClick="javascript:changeContent(this);"></td>
+      <td id="maxr" onDblClick="javascript:changeContent(this);"></td>
+    </tr>
+  </table>
+  <p>Presets: <FORM name="presets">
+  <INPUT type="button" value="Neutral" name="neutral" onClick="setpreset(0)">
+    <INPUT type="button" value="Overestimate" name="over" onClick="setpreset(1)">
+    <INPUT type="button" value="Underestimate" name="under" onClick="setpreset(2)">
+ </FORM>
+  <p>
+  <FORM name="buttons">
+  <INPUT type="button" value="Recompute" name="button" onClick="update()">
+ </FORM>
+
+</div>
+
+<div class="footer">
+  <h2>Computed values</h2>
+  A random deviate r is chosen with probability P(r). 
+  Let &Delta; be the sensitivity of U, i.e. the max change in U for
+  any r between r<sub>min</sub> and r<sub>max</sub> resulting from a
+  unit change in c. Then we have that releasing r affords
+  &epsilon; = 2&eta;&Delta; differential privacy. For a
+  chosen &epsilon;, we compute the needed
+  &eta;. Furthermore, we compute the discrete distribution P(r) and
+  its mean and variance. Finally, a few random deviates are chosen
+  using P(r). Click the "Recompute" button
+  to generate a new random deviates and refresh the plots.
+  <table class="sample" id="vtable" border=0 bgcolor=lightgray align="center">
+    <tr>
+      <th>&eta;</th>
+      <th>Variance</th>
+      <th>Mean</th>
+      <th>Random Deviates</th>
+    </tr>
+    <tr>
+      <td id="eta" ></td>
+      <td id="var" ></td>
+      <td id="ave"></td>
+      <td id="spl"></td>
+    </tr>
+  </table>
+ <div class="figure lfloat">
+    <div id="uplot" style="width:330px;height:150px;"></div>
+    <p>Utility Shape</p>
+  </div>
+  <div class="figure rfloat">
+    <div id="pplot" style="width:330px;height:150px;"></div>
+    <p>Probability Mass</p>
+  </div>
+</div>
+
+</div> <!-- wrapper -->
+<div class="clear">
+<p>&copy; 2011 Staal A. Vinterbo </p>
+<p id="debug">
+</div>
+</p>
+
+<script>
+debug("ert")
+init(params);
+pushparams(params);
+</script>
+
+</body>
+</html>

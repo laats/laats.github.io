@@ -1,0 +1,107 @@
+body {
+	font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif;
+
+
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: medium;
+	line-height: 100%;
+	word-spacing: normal;
+	letter-spacing: normal;
+	text-decoration: none;
+	text-transform: none;
+	text-align: left;
+	text-indent: 0ex;
+}
+
+div.wrapper{
+    width: 744px;
+}
+
+div.left_box{
+    float: left;
+    padding: 10px;
+    width: 350px;
+    height: 250px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+
+div.right_box{
+    float: right;
+    padding: 10px;
+    width: 350px;
+    height: 250px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+
+div.footer{
+    clear:both;
+    padding: 10px;
+    width: 730px;
+    height: 430px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+
+	border-width: 3px;
+	border-spacing: 2px;
+	border-style: outset;
+	border-color: blue;
+	border-collapse: separate;
+	background-color: white;
+
+}
+
+div.rfloat {
+    float: right;
+}
+
+div.lfloat {
+    float: right;
+}
+
+div.clear {
+    clear:both;
+}
+
+table.sample {
+	border-width: 1px;
+	border-spacing: 2px;
+	border-style: hidden;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+table.sample th {
+	border-width: 0px;
+	padding: 4px;
+	border-style: inset;
+	border-color: gray;
+	background-color: lightgray;
+	-moz-border-radius: ;
+}
+table.sample td {
+	border-width: 0px;
+	padding: 4px;
+	border-style: inset;
+	border-color: gray;
+	background-color: lightgray;
+	-moz-border-radius: ;
+}
+
+div.figure {
+    width:330px;
+  border: thin silver solid;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+div.figure p {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}
