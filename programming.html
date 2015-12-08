@@ -52,10 +52,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Programming bits</h1>
 <h2 class="author"><a href=".">Staal A. Vinterbo</a></h2>
-<h3 class="date">Time-stamp: &lt;2015-03-10 00:29:14 staal&gt;</h3>
+<h3 class="date">Time-stamp: &lt;2015-12-07 22:05:57 staal&gt;</h3>
 </div>
 <div id="TOC">
 <ul>
+<li><a href="#sorting-as-a-convex-optimization-problem">Sorting as a convex optimization problem</a></li>
 <li><a href="#a-self-recognizing-function">A self-recognizing function</a></li>
 <li><a href="#folding-trees-and-efficient-color-coding">Folding trees and efficient color coding</a></li>
 <li><a href="#r-and-closures-a-potential-problem">R and closures: a potential problem</a></li>
@@ -68,6 +69,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="main">
 <p>I enjoy programming. Here are some notes on different programming related things I find interesting.</p>
+<h1 id="sorting-as-a-convex-optimization-problem">Sorting as a convex optimization problem</h1>
+<blockquote>
+<p><sup>2015/02/19 17:39:10</sup></p>
+</blockquote>
+<p>Lately, I have been working on problems that require solving convex optimization problems. In the course of this work I wrote the small program below using <a href="http://www.cvxpy.org/en/latest/"><code>cvxpy</code></a>. As the <code>cvxpy</code> homepage states:</p>
+<blockquote>
+<p>CVXPY is a Python-embedded modeling language for convex optimization problems.</p>
+</blockquote>
+<p>It is inspired by <a href="http://cvxr.com/cvx/">CVX</a>, which in turn implements a language for <a href="http://cvxr.com/dcp/">diciplined convex programming (DCP)</a>. In short, an accepted DCP program is a convex program (note that DCP is not complete, as there are convex programs that cannot be expressed in DCP). In this sense, that the sorting program below compiles and runs can be taken as an automated proof that sorting is a convex program.</p>
+<div class="sourceCode"><pre class="sourceCode Python"><code class="sourceCode python"><span class="im">import</span> cvxpy <span class="im">as</span> cy
+<span class="im">import</span> numpy <span class="im">as</span> np
+x <span class="op">=</span> (np.random.randint(<span class="dv">10</span>, size<span class="op">=</span><span class="dv">4</span>))
+
+<span class="bu">print</span> <span class="st">'x:'</span>, x
+
+n <span class="op">=</span> <span class="bu">len</span>(x)
+K <span class="op">=</span> np.diag(<span class="bu">range</span>(<span class="dv">1</span>,n<span class="dv">+1</span>))
+ones <span class="op">=</span> np.ones((<span class="dv">1</span>,n))
+T <span class="op">=</span> cy.Variable(n,n)
+q <span class="op">=</span> cy.Variable(n)
+cs <span class="op">=</span> cy.Variable(n) <span class="co"># cumulative sums</span>
+sx <span class="op">=</span> cy.Variable(n) <span class="co"># sorted output, to reverse: reverse sign of x and sx</span>
+
+obj <span class="op">=</span> cy.Minimize(cy.sum_entries(cs.T))
+cons <span class="op">=</span> ([<span class="op">-</span>x <span class="op">&lt;=</span> T[:, i] <span class="op">+</span> q[i] <span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(n)] <span class="op">+</span> 
+        [<span class="dv">0</span> <span class="op">&lt;=</span> T,
+         cs.T <span class="op">==</span> ones<span class="op">*</span> <span class="op">+</span> q.T<span class="op">*</span>K,
+         <span class="op">-</span>sx.T <span class="op">==</span> cs.T <span class="op">-</span> cy.hstack([[<span class="dv">0</span>]], cs.T[:(n<span class="dv">-1</span>)]) ])
+         
+
+p <span class="op">=</span> cy.Problem(obj, cons)
+p.solve()
+
+<span class="bu">print</span> <span class="st">'sorted(x):'</span>, np.<span class="bu">round</span>(sx.value.T)
+<span class="bu">print</span> <span class="st">'cs:'</span>, cs.T.value</code></pre></div>
+<p>Gives output:</p>
+<pre><code>    x: [9 1 8 7]
+    sorted(x): [[ 1.  7.  8.  9.]]
+    cs: [[ -1.00000002  -8.00000001 -16.00000002 -25.00000002]]</code></pre>
+<p>While the program works, it is not the most efficient way of sorting. More on that over at <a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Wikipedia’s page on sorting algorithms</a>.</p>
 <h1 id="a-self-recognizing-function">A self-recognizing function</h1>
 <blockquote>
 <p><sup>2014-01-16 21:05:48</sup></p>
