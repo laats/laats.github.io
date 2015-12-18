@@ -15,7 +15,7 @@
 <div id="header">
 <h1 class="title">Information Security and Privacy</h1>
 <h2 class="author"><a href=".">Staal A. Vinterbo</a></h2>
-<h3 class="date">Time-stamp: &lt;2015-12-07 22:01:34 staal&gt;</h3>
+<h3 class="date">Time-stamp: &lt;2015-12-18 14:40:12 staal&gt;</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -43,46 +43,27 @@
 <p>Therefore, whenever privacy (or any other thing, for that matter) depends on randomization, one should think about, and explicitly state, the source randomness.</p>
 <h1 id="what-does-epsilon-differential-privacy-mean">What does <span class="math inline">\(\epsilon\)</span>-differential privacy mean?</h1>
 <blockquote>
-<p><sup>2013-12-12 11:13:55, updated 2015-12-7 18:57:53</sup></p>
+<p><sup>2013-12-12 11:13:55, updated 2015-12-07 18:57:53</sup></p>
 </blockquote>
 <p>Differential privacy <span class="citation" data-cites="DworkMNS:06sensitivity">(Dwork et al. 2006)</span> is an emerging standard for database privacy. As such, differential privacy is concerned with databases describing individuals. Given a randomized algorithm for answering queries on a database, differential privacy requires that the probability of any fixed response does not change more than a factor <span class="math inline">\(e^\epsilon\)</span> upon any substitution of a single individual in the database. What this means can be a little mysterious. The goal of this post is to shed a little light on this mystery by giving a Bayesian interpretation of <span class="math inline">\(e^\epsilon\)</span>.</p>
 <p>The idea behind differential privacy is that if the effect of making an arbitrary single substitution in the database is small enough, the query result cannot be used to infer much about any single individual, and therefore provides privacy. Differentially private processes rely on randomization, that is making random choices, to achieve the wanted insensitivity to arbitrary single point changes. Furthermore, differential privacy is defined as property of the <em>process</em>, independent of the input. Applying randomization generally degrades the query result utility as it is “noisy”. The challenge of creating differentially private methods is to balance this requirement with providing the best query answer we can.</p>
 <p>More formally, we declare two databases to be “neighbors” if they differ in at most one point (row). A randomized algorithm <span class="math inline">\(A\)</span> is a procedure that is allowed to make random decisions, usually implemented by giving the algorithm access to a stream of random bits. Such a random algorithm is <span class="math inline">\(\epsilon\)</span>-differential private if for all pairs <span class="math inline">\((D, D')\)</span> of neighboring databases, all subsets <span class="math inline">\(S\)</span> of possible outputs of <span class="math inline">\(A\)</span>, we have that <span class="math display">\[P(A(D) \in S) \leq \exp(\epsilon)\; P(A(D') \in S),\]</span> where the probability is taken over the randomness in <span class="math inline">\(A\)</span>.</p>
 <p>Now assume that Bob has a database and he runs an <span class="math inline">\(\epsilon\)</span>-differentially private algorithm <span class="math inline">\(A\)</span> to produce output <span class="math inline">\(x\)</span>. Alice receives <span class="math inline">\(x\)</span>. She has a suspicion that the data Bob has is <span class="math inline">\(D\)</span>, and wants to compute the probability <span class="math inline">\(P(D | x)\)</span> of this being the case conditioned on the new information <span class="math inline">\(x\)</span> she just received. Since Bob is not a big fan of <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">security through obscurity</a>, the algorithm <span class="math inline">\(A\)</span> is no secret and Alice has access to it. This means that she can compute <span class="math inline">\(P(x | D) = P(A(D) = x)\)</span>.</p>
 <p><a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes’ Theorem</a> states that <span class="math display">\[
-P(D | x) = \frac{P(x | D)P(D)}{P(x)} =
-\frac{P(x | D)P(D)}{P(x|D)P(D) + P(x|\overline{D})P(\overline{D})} .
+P(D | x) = \frac{P(x | D)P(D)}{P(x)}.
 \]</span> Here <span class="math inline">\(P(D)\)</span> reflects Alice’s <em>prior</em> suspicion that <span class="math inline">\(D\)</span> is the data Bob has, i.e., the probability that she assigns to <span class="math inline">\(D\)</span> being Bob’s data before receiving <span class="math inline">\(x\)</span>. Bayes’ Theorem gives Alice a way to update this prior to a posterior probability <span class="math inline">\(P(D | x)\)</span>.</p>
-<p>Alice knows that an alternative statement of Bayes’ Theorem, also called Bayes’ Rule, can be useful as the denominator <span class="math inline">\(P(x)\)</span> cancels out: <span class="math display">\[
-\frac{P(D | x)}{P(\overline{D} | x)} = \frac{P(D)}{P(\overline{D})}
-\frac{P(x | D)}{P(x | \overline{D})} 
+<p>Alice knows that an alternative statement of Bayes’ Theorem, also called Bayes’ Rule, can be useful. For an alternative event <span class="math inline">\(D'\)</span> we have that <span class="math display">\[
+\frac{P(D | x)}{P(D' | x)} = \frac{P(D)}{P(D')}
+\frac{P(x | D)}{P(x | D')} 
 \]</span> which we can write as <span class="math display">\[
-OR(D, \overline{D}, x) = O(D,\overline{D}) \; \Lambda(x, D, \overline{D})
-\]</span> where <span class="math inline">\(OR(D, \overline{D}, x) = \frac{P(D | x)}{P(\overline{D} | x)}\)</span>, <span class="math inline">\(O(D,\overline{D}) = \frac{P(D)}{P(\overline{D})}\)</span>, and <span class="math inline">\(\Lambda(x,D,D) = \frac{P(x | D)}{P(x | \overline{D}}\)</span>. <span class="math inline">\(OR\)</span> stands for odds ratio, <span class="math inline">\(O\)</span> for odds, and <span class="math inline">\(\Lambda\)</span> for likelihood ratio.</p>
-<p>What Bayes’ Rule states is that the <em>posterior odds</em> of two alternatives is the product of their <em>prior odds</em> and the <em>likelihood ratio</em> of the data under these two alternatives. The likelihood ratio <span class="math inline">\(\Lambda\)</span> is also interpreted as the <em>predictive power</em> of <span class="math inline">\(D\)</span> as it is the degree to which hypothesis <span class="math inline">\(D\)</span> surpasses hypothesis <span class="math inline">\(\overline{D}\)</span> as a predictor of the data <span class="math inline">\(x\)</span>. The hypothesis <span class="math inline">\(\overline{D}\)</span> means all other databases than <span class="math inline">\(D\)</span>. Given any database <span class="math inline">\(D' \in \overline{D}\)</span>, we can split <span class="math inline">\(\overline{D}\)</span> into two exhaustive and mutually disjoint events <span class="math inline">\(D'\)</span> and <span class="math inline">\(D'' = (\overline{D} - (\overline{D} \cap D'))\)</span>.</p>
-Applying Bayes’ Theorem together with the axiom that the probability of the union of a (countable) series of disjoint events is the sum of the individual probabilities, we get <span class="math display">\[
-P(x | \overline{D}) = \frac{1}{P(\overline{D})}
-(P(x | D') P(D') + P(x | D'') P(D'')).
-\]</span> This in turn means that <span class="math display">\[
-P(x | \overline{D}) \geq \frac{1}{P(\overline{D})} P(x | D') P(D')
-\]</span> Then
-\begin{align}
-\frac{P(D | x)}{P(\overline{D} | x)} &amp;= \frac{P(D)}{P(\overline{D})}
-\frac{P(x | D)}{P(x | \overline{D})} \\
-&amp;\leq \frac{P(D)}{P(\overline{D})} \frac{P(x | D)}{\frac{1}{P(\overline{D})}
-P(x | D') P(D')}\\
-&amp;= \frac{P(D)}{P(D')} \frac{P(x | D)}{P(x | D')} \\
-&amp;= O(D, D') \; \Lambda(x, D, D') = OR(D, D', x).
-\end{align}
-We restate differential privacy as the following likelihood ratio bound <span class="math display">\[
+OR(D, D', x) = O(D,D') \; \Lambda(x, D, D')
+\]</span> where <span class="math inline">\(OR(D, D', x) = \frac{P(D | x)}{P(D' | x)}\)</span> is called the posterior odds ratio, <span class="math inline">\(O(D,D') = \frac{P(D)}{P(D')}\)</span> is called the prior odds ratio, and <span class="math inline">\(\Lambda(x,D,D') = \frac{P(x | D)}{P(x | D')}\)</span> is called the likelihood ratio.</p>
+<p>What Bayes’ Rule states is that the <em>posterior odds</em> of two alternatives is the product of their <em>prior odds</em> and the <em>likelihood ratio</em> of the data under these alternatives. The likelihood ratio <span class="math inline">\(\Lambda\)</span> is also interpreted as the <em>predictive power</em> of <span class="math inline">\(D\)</span> as it is the degree to which hypothesis <span class="math inline">\(D\)</span> surpasses hypothesis <span class="math inline">\(D'\)</span> as a predictor of the data <span class="math inline">\(x\)</span>.</p>
+<p>We can restate differential privacy as the following ratio bound on neighboring datasets <span class="math inline">\(D\)</span> and <span class="math inline">\(D'\)</span> <span class="math display">\[
 \frac{P(A(D) \in S)}{P(A(D') \in S)} \leq \exp(\epsilon),
-\]</span> and recognize the above ratio as <span class="math inline">\(\Lambda(x, D, D')\)</span>, meaning that since we are free to choose <span class="math inline">\(D'\)</span> we can choose <span class="math inline">\(D'\)</span> to be a neighbor of <span class="math inline">\(D\)</span>, and we get
-\begin{align}
-\Lambda(x, D, D') &amp;\leq e^{\epsilon}, \text{ which means that} \\
-\frac{P(D | x)}{P(\overline{D} | x)} &amp;\leq OR(D, D', x)  =  O(D, D')
-\; \Lambda(x, D, D') \leq O(D, D') \; e^{\epsilon}.
-\end{align}
-<p>In other words, we can think of <span class="math inline">\(\epsilon\)</span>-differential privacy placing a bound on the predictive power in Bayes’ Rule, or how much the knowledge of <span class="math inline">\(x\)</span> can update Alice’s prior odds ratio.</p>
+\]</span> which we recognize as <span class="math display">\[
+\Lambda(x, D, D') \leq \exp(\epsilon).
+\]</span> In other words, we can think of <span class="math inline">\(\epsilon\)</span>-differential privacy placing a bound on the predictive power in Bayes’ Rule, or how much the knowledge of <span class="math inline">\(x\)</span> can update Alice’s prior odds ratio.</p>
 <h1 id="why-so-little-encryption">Why so little encryption?</h1>
 <blockquote>
 <p><sup>(&lt;2013-06-17 18:54:11 staal&gt;)</sup></p>
